@@ -9,6 +9,7 @@ This project is a personal web application that displays charts of my game playi
 - `src/app`: Contains the source code for the Next.js App Router.
 - `src/components`: Contains the source code for the Next.js (React) components.
 - `src/lib`: Contains the source code for non-UI logic.
+- `src/locals`: Contains i18n strings.
 - `public`: Contains static assets to be served.
 
 ## Libraries and Frameworks
@@ -20,6 +21,8 @@ This project is a personal web application that displays charts of my game playi
 - HeroUI v2.8.5 for the components library
 - Recharts for the charting library
 - motion (framer-motion) for animation
+- dayjs for datetime formatting
+- react-i18next for internationalization
 - `pnpm` for package management
 
 ## Coding Standards
