@@ -31,6 +31,7 @@ This project is a personal web application that displays charts of my game playi
 - Avoid using `any` as a type declaration.
 - Use absolute importing style. For example, use `@/lib/utils` instead of `../../lib/utils`, the `@` stands for `src` directory.
 - Use `<Suspense>` to wrap components that need to perform data fetching.
+- Always fetch data on server components, do not expose remote DB server URL and secrets to client.
 
 ## Build and Test Commands
 
