@@ -1,0 +1,89 @@
+{
+  "app": {
+    "title": "Eroge Records",
+    "description": "Game playing data charts and statistics"
+  },
+  "nav": {
+    "home": "Home",
+    "statistics": "Statistics",
+    "overall": "Overall",
+    "navigation": "Navigation"
+  },
+  "home": {
+    "title": "Welcome to Eroge Records",
+    "description": "Your personal game playing data tracker. Explore your statistics and lifetime game records."
+  },
+  "statistics": {
+    "title": "Play Statistics",
+    "recentGamesTitle": "Recently Played Games",
+    "playtimeChartTitle": "Games Played in Past Year",
+    "noGamesFound": "No recently played games found",
+    "noPlaytimeData": "No playtime data available"
+  },
+  "overall": {
+    "title": "Lifetime Game Records",
+    "totalGames": "Total Games",
+    "totalPlaytime": "Total Playtime",
+    "averageScore": "Average Score",
+    "noGamesInRange": "No games in this rating range"
+  },
+  "gameCard": {
+    "noCover": "No Cover"
+  },
+  "ratingTable": {
+    "title": "All Games",
+    "columns": {
+      "coverImage": "Cover Image",
+      "name": "Name",
+      "score": "Score",
+      "playStatus": "Play Status",
+      "playtime": "Playtime",
+      "lastRunDate": "Last Run Date"
+    },
+    "ranges": {
+      "perfect": "Rating: 10.0",
+      "excellent": "Rating: 9.0 - 9.9",
+      "great": "Rating: 8.0 - 8.9",
+      "good": "Rating: 7.0 - 7.9",
+      "fair": "Rating: 6.0 - 6.9",
+      "poor": "Rating: Under 6.0"
+    },
+    "noGames": "No games found"
+  },
+  "playStatus": {
+    "unplayed": "Unplayed",
+    "playing": "Playing",
+    "partial": "Partial",
+    "finished": "Finished",
+    "multiple": "Multiple",
+    "shelved": "Shelved"
+  },
+  "theme": {
+    "toggle": "Toggle theme",
+    "switchToLight": "Switch to light mode",
+    "switchToDark": "Switch to dark mode"
+  },
+  "language": {
+    "select": "Select Language",
+    "english": "English",
+    "chinese": "中文",
+    "japanese": "日本語"
+  },
+  "error": {
+    "title": "Something went wrong!",
+    "description": "We encountered an error while loading this page. This might be due to a network issue or a problem with the data.",
+    "retry": "Try Again"
+  },
+  "empty": {
+    "title": "No Data Found",
+    "description": "There are no items to display at this time."
+  },
+  "common": {
+    "loading": "Loading...",
+    "hours": "Hours",
+    "unknown": "Unknown",
+    "noCover": "No Cover",
+    "invalidDate": "Invalid Date",
+    "na": "N/A"
+  }
+}

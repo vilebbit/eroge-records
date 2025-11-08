@@ -1,7 +1,8 @@
 import "@/app/globals.css"
 import type { Metadata } from "next"
-import { HeroProviders } from "@/app/providers"
+import { AppProviders } from "@/app/providers"
 import { ClientConsent } from "@/components/clientConsent"
+import { Navbar } from "@/components/layout/navbar"
 
 export const metadata: Metadata = {
   title: "Eroge Records",
@@ -18,12 +19,13 @@ export default function RootLayout({
       <head>
       </head>
       <body>
-        <main>
-          <HeroProviders>
+        <AppProviders>
+          <Navbar />
+          <main className="container mx-auto px-4 py-6 max-w-7xl">
             {children}
-            <ClientConsent />
-          </HeroProviders>
-        </main>
+          </main>
+          <ClientConsent />
+        </AppProviders>
       </body>
     </html>
   )
