@@ -1,0 +1,25 @@
+{
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "next dev",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [ "run", "dev" ],
+      "console": "integratedTerminal",
+      "serverReadyAction": {
+        "pattern": "- Local:.+(https?://.+)",
+        "action": "startDebugging",
+        "name": "launch chrome",
+      }
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "launch chrome",
+      "url": "http://localhost:8088",
+      "webRoot": "${workspaceFolder}",
+      "userDataDir": "${workspaceFolder}/.vscode/browser-debug-profile"
+    }
+  ]
+}
