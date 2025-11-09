@@ -2,10 +2,10 @@
 
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts"
 import { useTranslation } from "react-i18next"
-import { GameDoc } from "@/lib/db/documents"
 import { formatPlaytime, formatPlaytimeDecimal } from "@/lib/utils/time"
 import { getGameTitle } from "@/lib/utils/gameData"
 import { useEffect, useState } from "react"
+import type { GameDoc } from "@/lib/db/documents"
 
 interface PlaytimeChartProps {
   games: GameDoc[]
@@ -54,7 +54,7 @@ export function PlaytimeChart({ games, maxGames = 25 }: PlaytimeChartProps) {
 
   // Generate gradient colors
   const getColor = (index: number, total: number) => {
-    const hue = 200 + (index / total) * 60
+    const hue = 230 - (index / total) * 30
     return `hsl(${hue}, 70%, 50%)`
   }
 

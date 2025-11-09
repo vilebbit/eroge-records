@@ -4,8 +4,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { useTranslation } from "react-i18next"
-import { GameDoc } from "@/lib/db/documents"
 import { getCoverUrl, getOfficialSiteUrl, getGameTitle, getPlayStatusConfig } from "@/lib/utils/gameData"
+import type { GameDoc } from "@/lib/db/documents"
 
 interface GameCardProps {
   game: GameDoc

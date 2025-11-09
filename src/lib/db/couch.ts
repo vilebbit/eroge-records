@@ -1,6 +1,6 @@
 import "server-only"
 
-import { GameCollectionDoc, GameDoc } from "./documents"
+import type { GameCollectionDoc, GameDoc } from "./documents"
 
 interface Selector {
   [key: string]: string | number | Selector

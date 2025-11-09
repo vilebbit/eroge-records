@@ -9,7 +9,7 @@ export default function ConsentPage() {
   const [isTickVisible, setIsTickVisible] = useState<boolean>(false)
   const router = useRouter()
   return (
-    <div className="relative p-4 flex flex-col items-center justify-center min-h-[calc(100vh-16px)]">
+    <div className="relative p-4 flex flex-col items-center justify-center min-h-[calc(100vh-64px)]">
       <AnimatePresence>
         {
           isTickVisible === false

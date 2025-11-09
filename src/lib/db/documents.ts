@@ -19,6 +19,7 @@ export declare interface GameDoc {
     vndbId: string
     igdbId: string
     ymgalId: string
+    erogamescapeId: string
     extra: {
       key: string
       value: string[]

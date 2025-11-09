@@ -1,14 +1,15 @@
 "use client"
 
 import { useTranslation } from "react-i18next"
-import { GameDoc } from "@/lib/db/documents"
 import { GameCard } from "@/components/features/gameCard"
+import type { GameDoc } from "@/lib/db/documents"
 
 interface RecentGamesGridProps {
-  games: GameDoc[]
+  games: GameDoc[],
+  limitGames: number,
 }
 
-export function RecentGamesGrid({ games }: RecentGamesGridProps) {
+export function RecentGamesGrid({ games, limitGames }: RecentGamesGridProps) {
   const { t } = useTranslation()
 
   if (games.length === 0) {
@@ -21,7 +22,7 @@ export function RecentGamesGrid({ games }: RecentGamesGridProps) {
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-      {games.map((game, index) => (
+      {games.slice(0, limitGames).map((game, index) => (
         <GameCard key={game._id} game={game} index={index} />
       ))}
     </div>

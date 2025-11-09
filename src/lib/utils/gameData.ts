@@ -1,5 +1,5 @@
-import { GameDoc } from "@/lib/db/documents"
 import { PlayStatus, PLAY_STATUS_CONFIG, PlayStatusConfig } from "@/lib/types/common"
+import type { GameDoc } from "@/lib/db/documents"
 
 /**
  * Safely extracts cover URL from GameDoc extra metadata

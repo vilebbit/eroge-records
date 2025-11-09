@@ -1,10 +1,11 @@
+"use server"
 import "server-only"
 
 import { cacheLife } from "next/cache"
 import { findDB } from "./couch"
-import { GameDoc } from "./documents"
+import type { GameDoc } from "./documents"
 
-export async function queryAllGamesSortByScore(): Promise<GameDoc[]> {
+export async function queryAllGames(): Promise<GameDoc[]> {
   "use cache"
   cacheLife("hours")
 
@@ -12,31 +13,47 @@ export async function queryAllGamesSortByScore(): Promise<GameDoc[]> {
     const games = await findDB("vnite-game", {
       selector: {},
       fields: ["_id", "metadata", "record"],
-      sort: [{ "record.score": "desc" }, { "record.lastRunDate": "desc" }],
     })
     return games
   } catch (error) {
-    console.error("findAllGamesSortByScore failed: ", error)
+    console.error("queryAllGames failed: ", error)
     return []
   }
 }
 
-export async function queryRecentGames(): Promise<GameDoc[]> {
-  "use cache"
-  cacheLife("hours")
+// export async function queryAllGamesSortByScore(): Promise<GameDoc[]> {
+//   "use cache"
+//   cacheLife("hours")
 
-  const afterDate = new Date()
-  afterDate.setFullYear(afterDate.getFullYear() - 1)
+//   try {
+//     const games = await findDB("vnite-game", {
+//       selector: {},
+//       fields: ["_id", "metadata", "record"],
+//       sort: [{ "record.score": "desc" }, { "record.lastRunDate": "desc" }],
+//     })
+//     return games
+//   } catch (error) {
+//     console.error("queryAllGamesSortByScore failed: ", error)
+//     return []
+//   }
+// }
 
-  try {
-    const games = await findDB("vnite-game", {
-      selector: { "record.lastRunDate": { $gte: afterDate.toISOString() } },
-      fields: ["_id", "metadata", "record"],
-      sort: [{ "record.lastRunDate": "desc" }],
-    })
-    return games
-  } catch (error) {
-    console.error("findRecentGames failed: ", error)
-    return []
-  }
-}
+// export async function queryRecentGames(): Promise<GameDoc[]> {
+//   "use cache"
+//   cacheLife("hours")
+
+//   const afterDate = new Date()
+//   afterDate.setFullYear(afterDate.getFullYear() - 1)
+
+//   try {
+//     const games = await findDB("vnite-game", {
+//       selector: { "record.lastRunDate": { $gte: afterDate.toISOString() } },
+//       fields: ["_id", "metadata", "record"],
+//       sort: [{ "record.lastRunDate": "desc" }],
+//     })
+//     return games
+//   } catch (error) {
+//     console.error("queryRecentGames failed: ", error)
+//     return []
+//   }
+// }

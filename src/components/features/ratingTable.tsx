@@ -5,7 +5,6 @@ import { Chip } from "@heroui/chip"
 import Image from "next/image"
 import Link from "next/link"
 import { useTranslation } from "react-i18next"
-import { GameDoc } from "@/lib/db/documents"
 import {
   getCoverUrl,
   getOfficialSiteUrl,
@@ -15,6 +14,7 @@ import {
 } from "@/lib/utils/gameData"
 import { formatPlaytime } from "@/lib/utils/time"
 import { formatDate } from "@/lib/utils/date"
+import type { GameDoc } from "@/lib/db/documents"
 
 interface RatingTableProps {
   title: string

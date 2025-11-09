@@ -1,5 +1,5 @@
-import { GameDoc } from "@/lib/db/documents"
 import { ScoreRange, ScoreRangeGroup } from "@/lib/types/common"
+import type { GameDoc } from "@/lib/db/documents"
 
 /**
  * Determines which score range a game belongs to

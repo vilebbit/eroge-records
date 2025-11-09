@@ -17,6 +17,10 @@ export function Navbar() {
   const { t } = useTranslation()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
+  if (pathname.startsWith("/consent")) {
+    return null
+  }
+
   return (
     <>
       <HeroNavbar maxWidth="xl" isBordered>
@@ -47,11 +51,10 @@ export function Navbar() {
               <NavbarItem key={route.path} isActive={isActive}>
                 <Link
                   href={route.path}
-                  className={`${
-                    isActive
+                  className={`${isActive
                       ? "text-primary font-semibold"
                       : "text-foreground hover:text-primary transition-colors"
-                  }`}
+                    }`}
                 >
                   {t(`nav.${route.label.toLowerCase()}`)}
                 </Link>

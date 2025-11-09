@@ -1,4 +1,4 @@
-import { GameDoc } from "@/lib/db/documents"
+import type { GameDoc } from "@/lib/db/documents"
 
 export type PlayStatus = "unplayed" | "playing" | "partial" | "finished" | "multiple" | "shelved"
 
