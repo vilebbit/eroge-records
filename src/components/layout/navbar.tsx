@@ -52,9 +52,8 @@ export function Navbar() {
                 <Link
                   href={route.path}
                   className={`${isActive
-                      ? "text-primary font-semibold"
-                      : "text-foreground hover:text-primary transition-colors"
-                    }`}
+                    ? "text-primary font-semibold"
+                    : "text-foreground hover:text-primary transition-colors"}`}
                 >
                   {t(`nav.${route.label.toLowerCase()}`)}
                 </Link>

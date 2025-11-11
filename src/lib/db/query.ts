@@ -3,7 +3,7 @@ import "server-only"
 
 import { cacheLife } from "next/cache"
 import { findDB } from "./couch"
-import type { GameDoc } from "./documents"
+import type { GameCollectionDoc, GameDoc } from "./documents"
 
 export async function queryAllGames(): Promise<GameDoc[]> {
   "use cache"
@@ -29,6 +29,27 @@ export async function queryAllGames(): Promise<GameDoc[]> {
     return games
   } catch (error) {
     console.error("queryAllGames failed: ", error)
+    return []
+  }
+}
+
+export async function queryCollections(): Promise<GameCollectionDoc[]> {
+  "use cache"
+  cacheLife("hours")
+
+  try {
+    const collections = await findDB("vnite-game-collection", {
+      selector: { "$not": { "_id": { "$beginsWith": "_design/" } } },
+      fields: [
+        "_id",
+        "name",
+        "games",
+      ],
+      limit: 9999,
+    })
+    return collections
+  } catch (error) {
+    console.error("queryCollections failed: ", error)
     return []
   }
 }
