@@ -14,8 +14,8 @@ export default heroui({
       layout: {},
       colors: {
         primary: {
-          
-        }
+
+        },
       },
     },
   },
