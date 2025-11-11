@@ -11,8 +11,20 @@ export async function queryAllGames(): Promise<GameDoc[]> {
 
   try {
     const games = await findDB("vnite-game", {
-      selector: {},
-      fields: ["_id", "metadata", "record"],
+      selector: { "$not": { "_id": { "$beginsWith": "_design/" } } },
+      fields: [
+        "_id",
+        "metadata.name",
+        "metadata.releaseDate",
+        "metadata.developers",
+        "metadata.relatedSites",
+        "metadata.erogamescapeId",
+        "record.lastRunDate",
+        "record.score",
+        "record.playTime",
+        "record.playStatus",
+      ],
+      limit: 9999,
     })
     return games
   } catch (error) {

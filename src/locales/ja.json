@@ -10,8 +10,16 @@
     "navigation": "ナビゲーション"
   },
   "home": {
-    "title": "ゲーム記録へようこそ",
-    "description": "あなたの個人的なゲームプレイデータトラッカー。統計とライフタイムゲーム記録を探索しましょう。"
+    "title": "Eroge Recordsへようこそ",
+    "description": "あなた専用のゲームデータトラッカー。統計情報とライフタイムゲーム記録を探索しましょう。",
+    "lifetimeRecords": "ライフタイムレコード",
+    "totalGames": "ゲーム総数",
+    "playingGames": "現在プレイ中",
+    "completedGames": "完了したゲーム",
+    "totalPlaytime": "総プレイ時間",
+    "recentlyPlaying": "最近プレイ中",
+    "recentlyCompleted": "最近完了",
+    "noRecentGames": "最近のゲームが見つかりません"
   },
   "statistics": {
     "title": "プレイ統計",
@@ -35,6 +43,7 @@
     "columns": {
       "coverImage": "カバー画像",
       "name": "名前",
+      "brand": "ブランド",
       "score": "評価",
       "playStatus": "プレイ状態",
       "playtime": "プレイ時間",

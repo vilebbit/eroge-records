@@ -17,7 +17,7 @@ export const PLAY_STATUS_CONFIG: Record<PlayStatus, PlayStatusConfig> = {
   shelved: { key: "shelved", label: "Shelved", color: "danger" },
 }
 
-export type ScoreRange = "10.0" | "9.0-9.9" | "8.0-8.9" | "7.0-7.9" | "6.0-6.9" | "<6.0"
+export type ScoreRange = "10.0" | "9.0-9.9" | "8.0-8.9" | "7.0-7.9" | "6.0-6.9" | "<6.0" | "unscored"
 
 export interface ScoreRangeGroup {
   range: ScoreRange

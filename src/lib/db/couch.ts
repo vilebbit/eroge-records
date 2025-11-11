@@ -9,7 +9,8 @@ interface Selector {
 interface MangoQuery {
   "selector": Selector,
   "fields"?: string[],
-  "sort"?: { [key: string]: "asc" | "desc" }[]
+  "sort"?: { [key: string]: "asc" | "desc" }[],
+  "limit"?: number
 }
 
 export async function findDB<T extends "vnite-game" | "vnite-game-collection">(

@@ -8,11 +8,11 @@ import dayjs from "dayjs"
  */
 export function formatDate(isoDate: string): string {
   if (!isoDate) return "N/A"
-  
+
   try {
     const date = dayjs(isoDate)
     if (!date.isValid()) return "Invalid Date"
-    
+
     return date.format("YYYY-MM-DD")
   } catch (error) {
     console.error("Error formatting date:", error)
@@ -27,14 +27,14 @@ export function formatDate(isoDate: string): string {
  */
 export function formatRelativeTime(isoDate: string): string {
   if (!isoDate) return "N/A"
-  
+
   try {
     const date = dayjs(isoDate)
     if (!date.isValid()) return "N/A"
-    
+
     const now = dayjs()
     const diffDays = now.diff(date, "day")
-    
+
     if (diffDays === 0) return "Today"
     if (diffDays === 1) return "Yesterday"
     if (diffDays < 7) return `${diffDays} days ago`

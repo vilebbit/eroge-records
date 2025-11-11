@@ -4,7 +4,7 @@ import { cacheLife } from "next/cache"
 import { queryAllGames } from "@/lib/db"
 import { Statistics } from "./statistics"
 
-const LIMIT_RECENT_GAMES = 6
+// const LIMIT_RECENT_GAMES = 6
 
 export default async function StatisticsPage() {
   "use cache"
@@ -18,7 +18,7 @@ export default async function StatisticsPage() {
         fallback={
           <div className="w-full">
             <Skeleton className="w-64 h-10 mb-8 rounded" />
-            <div className="mb-12">
+            {/* <div className="mb-12">
               <Skeleton className="w-48 h-8 mb-6 rounded" />
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
                 {Array.from({ length: LIMIT_RECENT_GAMES }).map((_, i) => (
@@ -29,7 +29,7 @@ export default async function StatisticsPage() {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
             <div className="mb-12">
               <Skeleton className="w-56 h-8 mb-6 rounded" />
               <div className="bg-content1 rounded-lg p-6 border border-default-200">
@@ -39,7 +39,7 @@ export default async function StatisticsPage() {
           </div>
         }
       >
-        <Statistics gamesPromise={gamePromise} limitGames={LIMIT_RECENT_GAMES} />
+        <Statistics gamesPromise={gamePromise} />
       </Suspense>
     </div>
   )

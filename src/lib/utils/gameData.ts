@@ -8,14 +8,12 @@ import type { GameDoc } from "@/lib/db/documents"
  */
 export function getCoverUrl(game: GameDoc): string | null {
   try {
-    const coverEntry = game.metadata.extra?.find(
-      (entry) => entry.key === "coverUrl"
-    )
-    
-    if (coverEntry && coverEntry.value && coverEntry.value.length > 0) {
-      return coverEntry.value[0]
+    const coverEntry = game.metadata.relatedSites.find((entry) => entry.label === "Cover")
+
+    if (coverEntry && coverEntry.url) {
+      return coverEntry.url
     }
-    
+
     return null
   } catch (error) {
     console.warn(`Failed to extract cover URL for game ${game._id}:`, error)
@@ -30,17 +28,30 @@ export function getCoverUrl(game: GameDoc): string | null {
  */
 export function getOfficialSiteUrl(game: GameDoc): string | null {
   try {
-    const officialSite = game.metadata.relatedSites?.find(
-      (site) => site.label === "official"
-    )
-    
+    const officialSite = game.metadata.relatedSites.find((site) => site.label === "Official Site")
+
     if (officialSite && officialSite.url) {
       return officialSite.url
     }
-    
+
     return null
   } catch (error) {
     console.warn(`Failed to extract official site URL for game ${game._id}:`, error)
+    return null
+  }
+}
+
+export function getErogeScapeSiteUrl(game: GameDoc): string | null {
+  try {
+    const erogeScape = game.metadata.relatedSites.find((site) => site.label === "ErogameScape")
+
+    if (erogeScape && erogeScape.url) {
+      return erogeScape.url
+    }
+
+    return null
+  } catch (error) {
+    console.warn(`Failed to extract erogescape site URL for game ${game._id}:`, error)
     return null
   }
 }

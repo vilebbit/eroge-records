@@ -12,7 +12,8 @@ export function getScoreRange(score: number): ScoreRange {
   if (score >= 8 && score < 9) return "8.0-8.9"
   if (score >= 7 && score < 8) return "7.0-7.9"
   if (score >= 6 && score < 7) return "6.0-6.9"
-  return "<6.0"
+  if (score >= 0 && score < 6) return "<6.0"
+  return "unscored"
 }
 
 /**
@@ -28,6 +29,7 @@ export function getScoreRangeTranslationKey(range: ScoreRange): string {
     "7.0-7.9": "ratingTable.ranges.good",
     "6.0-6.9": "ratingTable.ranges.fair",
     "<6.0": "ratingTable.ranges.poor",
+    "unscored": "ratingTable.ranges.unscored",
   }
   return keyMap[range]
 }
@@ -45,6 +47,7 @@ export function groupGamesByScore(games: GameDoc[]): ScoreRangeGroup[] {
     "7.0-7.9": [],
     "6.0-6.9": [],
     "<6.0": [],
+    "unscored": [],
   }
 
   // Group games by score range
@@ -66,7 +69,7 @@ export function groupGamesByScore(games: GameDoc[]): ScoreRangeGroup[] {
   })
 
   // Convert to array of ScoreRangeGroup objects
-  const rangeOrder: ScoreRange[] = ["10.0", "9.0-9.9", "8.0-8.9", "7.0-7.9", "6.0-6.9", "<6.0"]
+  const rangeOrder: ScoreRange[] = ["10.0", "9.0-9.9", "8.0-8.9", "7.0-7.9", "6.0-6.9", "<6.0", "unscored"]
 
   return rangeOrder.map((range) => ({
     range,

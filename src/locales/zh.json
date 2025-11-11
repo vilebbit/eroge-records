@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "游戏记录",
+    "title": "Eroge Records",
     "description": "游戏游玩数据图表和统计"
   },
   "nav": {
@@ -10,18 +10,26 @@
     "navigation": "导航"
   },
   "home": {
-    "title": "欢迎来到游戏记录",
-    "description": "您的个人游戏游玩数据追踪器。探索您的统计数据和终身游戏记录。"
+    "title": "欢迎来到 Eroge Records",
+    "description": "这里是 Vibbit 的个人游戏数据追踪器，记录了所有游戏统计数据。",
+    "lifetimeRecords": "总游戏记录",
+    "totalGames": "游戏总数",
+    "playingGames": "正在游玩",
+    "completedGames": "已完成游戏",
+    "totalPlaytime": "总游戏时长",
+    "recentlyPlaying": "最近游玩",
+    "recentlyCompleted": "最近完成",
+    "noRecentGames": "未找到最近的游戏"
   },
   "statistics": {
-    "title": "游玩统计",
+    "title": "游戏统计",
     "recentGamesTitle": "最近游玩的游戏",
-    "playtimeChartTitle": "过去一年游玩的游戏",
+    "lastOneYearPlaytimeChartTitle": "过去一年游戏统计",
     "noGamesFound": "未找到最近游玩的游戏",
     "noPlaytimeData": "无游玩时间数据"
   },
   "overall": {
-    "title": "终身游戏记录",
+    "title": "总游戏记录",
     "totalGames": "游戏总数",
     "totalPlaytime": "总游玩时间",
     "averageScore": "平均评分",
@@ -33,27 +41,29 @@
   "ratingTable": {
     "title": "所有游戏",
     "columns": {
-      "coverImage": "封面图片",
+      "coverImage": "封面",
       "name": "名称",
+      "brand": "发行商",
       "score": "评分",
       "playStatus": "游玩状态",
       "playtime": "游戏时长",
-      "lastRunDate": "最后运行日期"
+      "lastRunDate": "最终游戏日期"
     },
     "ranges": {
-      "perfect": "评分：10.0",
-      "excellent": "评分：9.0 - 9.9",
-      "great": "评分：8.0 - 8.9",
-      "good": "评分：7.0 - 7.9",
-      "fair": "评分：6.0 - 6.9",
-      "poor": "评分：6.0以下"
+      "perfect": "超神作",
+      "excellent": "神作",
+      "great": "佳作",
+      "good": "良作",
+      "fair": "差作",
+      "poor": "渣作",
+      "unscored": "未评分"
     },
     "noGames": "未找到游戏"
   },
   "playStatus": {
     "unplayed": "未游玩",
     "playing": "游玩中",
-    "partial": "部分",
+    "partial": "部分完成",
     "finished": "已完成",
     "multiple": "多周目",
     "shelved": "搁置"

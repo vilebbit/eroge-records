@@ -11,7 +11,15 @@
   },
   "home": {
     "title": "Welcome to Eroge Records",
-    "description": "Your personal game playing data tracker. Explore your statistics and lifetime game records."
+    "description": "Your personal game playing data tracker. Explore your statistics and lifetime game records.",
+    "lifetimeRecords": "Lifetime Records",
+    "totalGames": "Total Games",
+    "playingGames": "Currently Playing",
+    "completedGames": "Completed Games",
+    "totalPlaytime": "Total Playtime",
+    "recentlyPlaying": "Recently Playing",
+    "recentlyCompleted": "Recently Completed",
+    "noRecentGames": "No recent games found"
   },
   "statistics": {
     "title": "Play Statistics",
@@ -35,18 +43,20 @@
     "columns": {
       "coverImage": "Cover Image",
       "name": "Name",
+      "brand": "Brand",
       "score": "Score",
       "playStatus": "Play Status",
       "playtime": "Playtime",
       "lastRunDate": "Last Run Date"
     },
     "ranges": {
-      "perfect": "Rating: 10.0",
-      "excellent": "Rating: 9.0 - 9.9",
-      "great": "Rating: 8.0 - 8.9",
-      "good": "Rating: 7.0 - 7.9",
-      "fair": "Rating: 6.0 - 6.9",
-      "poor": "Rating: Under 6.0"
+      "perfect": "Masterpiece",
+      "excellent": "Outstanding",
+      "great": "Great",
+      "good": "Good",
+      "fair": "Average",
+      "poor": "渣作",
+      "unscored": "Unscored"
     },
     "noGames": "No games found"
   },
