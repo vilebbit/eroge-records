@@ -7,6 +7,7 @@
     "home": "ホーム",
     "statistics": "統計",
     "overall": "総合",
+    "collections": "コレクション",
     "navigation": "ナビゲーション"
   },
   "home": {
@@ -34,6 +35,13 @@
     "totalPlaytime": "総プレイ時間",
     "averageScore": "平均スコア",
     "noGamesInRange": "この評価範囲にゲームはありません"
+  },
+  "collections": {
+    "title": "ゲームコレクション",
+    "noCollections": "コレクションが見つかりません",
+    "gamesCount": "{count} ゲーム",
+    "collectionDetail": "コレクション：{name}",
+    "noGamesInCollection": "このコレクションにゲームはありません"
   },
   "gameCard": {
     "noCover": "カバーなし"

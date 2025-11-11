@@ -7,6 +7,7 @@
     "home": "Home",
     "statistics": "Statistics",
     "overall": "Overall",
+    "collections": "Collections",
     "navigation": "Navigation"
   },
   "home": {
@@ -34,6 +35,13 @@
     "totalPlaytime": "Total Playtime",
     "averageScore": "Average Score",
     "noGamesInRange": "No games in this rating range"
+  },
+  "collections": {
+    "title": "Game Collections",
+    "noCollections": "No collections found",
+    "gamesCount": "{count} games",
+    "collectionDetail": "Collection: {name}",
+    "noGamesInCollection": "No games in this collection"
   },
   "gameCard": {
     "noCover": "No Cover"

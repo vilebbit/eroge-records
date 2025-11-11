@@ -7,6 +7,7 @@
     "home": "主页",
     "statistics": "统计",
     "overall": "总览",
+    "collections": "合集",
     "navigation": "导航"
   },
   "home": {
@@ -34,6 +35,13 @@
     "totalPlaytime": "总游玩时间",
     "averageScore": "平均评分",
     "noGamesInRange": "该评分范围内无游戏"
+  },
+  "collections": {
+    "title": "游戏合集",
+    "noCollections": "未找到合集",
+    "gamesCount": "{count} 个游戏",
+    "collectionDetail": "合集：{name}",
+    "noGamesInCollection": "该合集中无游戏"
   },
   "gameCard": {
     "noCover": "无封面"
