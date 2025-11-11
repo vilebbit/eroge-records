@@ -11,7 +11,7 @@
   },
   "home": {
     "title": "Welcome to Eroge Records",
-    "description": "Your personal game playing data tracker. Explore your statistics and lifetime game records.",
+    "description": "This is Vibbit's personal game data tracker, recording all game statistics.",
     "lifetimeRecords": "Lifetime Records",
     "totalGames": "Total Games",
     "playingGames": "Currently Playing",
@@ -22,14 +22,14 @@
     "noRecentGames": "No recent games found"
   },
   "statistics": {
-    "title": "Play Statistics",
+    "title": "Game Statistics",
     "recentGamesTitle": "Recently Played Games",
-    "playtimeChartTitle": "Games Played in Past Year",
+    "lastOneYearPlaytimeChartTitle": "Games Statistics in Past Year",
     "noGamesFound": "No recently played games found",
     "noPlaytimeData": "No playtime data available"
   },
   "overall": {
-    "title": "Lifetime Game Records",
+    "title": "Total Game Records",
     "totalGames": "Total Games",
     "totalPlaytime": "Total Playtime",
     "averageScore": "Average Score",
@@ -41,13 +41,13 @@
   "ratingTable": {
     "title": "All Games",
     "columns": {
-      "coverImage": "Cover Image",
+      "coverImage": "Cover",
       "name": "Name",
-      "brand": "Brand",
+      "brand": "Publisher",
       "score": "Score",
       "playStatus": "Play Status",
       "playtime": "Playtime",
-      "lastRunDate": "Last Run Date"
+      "lastRunDate": "Final Game Date"
     },
     "ranges": {
       "perfect": "Masterpiece",
@@ -55,7 +55,7 @@
       "great": "Great",
       "good": "Good",
       "fair": "Average",
-      "poor": "渣作",
+      "poor": "Poor",
       "unscored": "Unscored"
     },
     "noGames": "No games found"
@@ -63,7 +63,7 @@
   "playStatus": {
     "unplayed": "Unplayed",
     "playing": "Playing",
-    "partial": "Partial",
+    "partial": "Partially Completed",
     "finished": "Finished",
     "multiple": "Multiple",
     "shelved": "Shelved"

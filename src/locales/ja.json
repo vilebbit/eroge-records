@@ -11,7 +11,7 @@
   },
   "home": {
     "title": "Eroge Recordsへようこそ",
-    "description": "あなた専用のゲームデータトラッカー。統計情報とライフタイムゲーム記録を探索しましょう。",
+    "description": "Vibbitの個人用ゲームデータトラッカーです。すべてのゲーム統計を記録しています。",
     "lifetimeRecords": "ライフタイムレコード",
     "totalGames": "ゲーム総数",
     "playingGames": "現在プレイ中",
@@ -22,14 +22,14 @@
     "noRecentGames": "最近のゲームが見つかりません"
   },
   "statistics": {
-    "title": "プレイ統計",
+    "title": "ゲーム統計",
     "recentGamesTitle": "最近プレイしたゲーム",
-    "playtimeChartTitle": "過去1年間にプレイしたゲーム",
+    "lastOneYearPlaytimeChartTitle": "過去1年間のゲーム統計",
     "noGamesFound": "最近プレイしたゲームが見つかりません",
     "noPlaytimeData": "プレイ時間データがありません"
   },
   "overall": {
-    "title": "ライフタイムゲーム記録",
+    "title": "総ゲーム記録",
     "totalGames": "総ゲーム数",
     "totalPlaytime": "総プレイ時間",
     "averageScore": "平均スコア",
@@ -41,28 +41,29 @@
   "ratingTable": {
     "title": "すべてのゲーム",
     "columns": {
-      "coverImage": "カバー画像",
+      "coverImage": "カバー",
       "name": "名前",
-      "brand": "ブランド",
+      "brand": "発行元",
       "score": "評価",
       "playStatus": "プレイ状態",
       "playtime": "プレイ時間",
-      "lastRunDate": "最終実行日"
+      "lastRunDate": "最終ゲーム日"
     },
     "ranges": {
-      "perfect": "評価：10.0",
-      "excellent": "評価：9.0 - 9.9",
-      "great": "評価：8.0 - 8.9",
-      "good": "評価：7.0 - 7.9",
-      "fair": "評価：6.0 - 6.9",
-      "poor": "評価：6.0未満"
+      "perfect": "超神作",
+      "excellent": "神作",
+      "great": "佳作",
+      "good": "良作",
+      "fair": "凡作",
+      "poor": "駄作",
+      "unscored": "未評価"
     },
     "noGames": "ゲームが見つかりません"
   },
   "playStatus": {
     "unplayed": "未プレイ",
     "playing": "プレイ中",
-    "partial": "部分的",
+    "partial": "部分完了",
     "finished": "完了",
     "multiple": "複数周",
     "shelved": "保留"
