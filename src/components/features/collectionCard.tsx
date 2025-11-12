@@ -51,7 +51,7 @@ export function CollectionCard({ id, name, coverUrl, gamesCount, index }: Collec
                   {name}
                 </h3>
                 <p className="text-white/80 text-sm">
-                  {t("collections.gamesCount", { count: gamesCount })}
+                  {t("collections.gamesCount", { val: gamesCount })}
                 </p>
               </div>
             </div>

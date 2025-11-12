@@ -3,7 +3,7 @@
 import { use } from "react"
 import { useTranslation } from "react-i18next"
 import { CollectionCard } from "@/components/features/collectionCard"
-import { getCoverUrl } from "@/lib/utils/gameData"
+import { getGameRelatedSiteUrl } from "@/lib/utils/gameData"
 import type { GameCollectionDoc, GameDoc } from "@/lib/db/documents"
 
 interface CollectionsProps {
@@ -16,18 +16,15 @@ export function Collections({ collectionsPromise, gamesPromise }: CollectionsPro
   const collections = use(collectionsPromise)
   const games = use(gamesPromise)
 
-  // Create a map of game IDs to games for quick lookup
-  const gamesMap = new Map(games.map(game => [game._id, game]))
-
   // Get cover URL for each collection (first game's cover)
   const collectionsWithCovers = collections.map(collection => {
     let coverUrl: string | null = null
 
     // Find the first game in the collection that has a cover
     for (const gameId of collection.games) {
-      const game = gamesMap.get(gameId)
+      const game = games.find((g) => g._id === gameId)
       if (game) {
-        const url = getCoverUrl(game)
+        const url = getGameRelatedSiteUrl(game, "Cover")
         if (url) {
           coverUrl = url
           break
@@ -52,8 +49,8 @@ export function Collections({ collectionsPromise, gamesPromise }: CollectionsPro
 
   return (
     <div className="w-full">
-      <h1 className="text-3xl font-bold mb-8">{t("collections.title")}</h1>
-
+      <h1 className="text-3xl font-bold mb-4">{t("collections.title")}</h1>
+      <h3 className="text-xl mb-8 text-default-600">{t("collections.description")}</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {collectionsWithCovers.map((collection, index) => (
           <CollectionCard

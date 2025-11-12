@@ -19,6 +19,7 @@ export async function queryAllGames(): Promise<GameDoc[]> {
         "metadata.developers",
         "metadata.relatedSites",
         "metadata.erogamescapeId",
+        "metadata.genres",
         "record.lastRunDate",
         "record.score",
         "record.playTime",

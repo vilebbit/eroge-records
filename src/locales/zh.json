@@ -38,10 +38,12 @@
   },
   "collections": {
     "title": "游戏合集",
+    "description": "个人精选的各类型游戏佳作合集",
     "noCollections": "未找到合集",
-    "gamesCount": "{count} 个游戏",
-    "collectionDetail": "合集：{name}",
-    "noGamesInCollection": "该合集中无游戏"
+    "gamesCount": "{{val}} 个游戏",
+    "collectionDetail": "合集：{{name}}",
+    "noGamesInCollection": "该合集中无游戏",
+    "blogLink": "个人感想 (Blog)"
   },
   "gameCard": {
     "noCover": "无封面"

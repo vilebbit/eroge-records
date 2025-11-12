@@ -39,8 +39,8 @@
   "collections": {
     "title": "Game Collections",
     "noCollections": "No collections found",
-    "gamesCount": "{count} games",
-    "collectionDetail": "Collection: {name}",
+    "gamesCount": "{{val}} games",
+    "collectionDetail": "Collection: {{name}}",
     "noGamesInCollection": "No games in this collection"
   },
   "gameCard": {

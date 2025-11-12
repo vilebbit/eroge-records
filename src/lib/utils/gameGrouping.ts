@@ -16,6 +16,16 @@ export function getScoreRange(score: number): ScoreRange {
   return "unscored"
 }
 
+export function getScoreColor(score: number): string {
+  if (score === 10) return "text-amber-600"
+  if (score >= 9 && score < 10) return "text-violet-600"
+  if (score >= 8 && score < 9) return "text-sky-600"
+  if (score >= 7 && score < 8) return "text-emerald-600"
+  if (score >= 6 && score < 7) return "text-rose-400"
+  if (score >= 0 && score < 6) return "text-default-400"
+  return "text-default"
+}
+
 /**
  * Gets the translation key for a score range
  * @param range - ScoreRange value

@@ -2,6 +2,7 @@
 
 import { Navbar as HeroNavbar, NavbarBrand, NavbarContent, NavbarItem } from "@heroui/navbar"
 import { Button } from "@heroui/button"
+import { Divider } from "@heroui/divider"
 import { IconMenu2 } from "@tabler/icons-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -45,6 +46,7 @@ export function Navbar() {
 
         {/* Desktop navigation */}
         <NavbarContent className="hidden md:flex gap-4" justify="center">
+          <Divider orientation="vertical" className="h-1/2" />
           {NAVIGATION_ROUTES.map((route) => {
             const isActive = pathname === route.path
             return (

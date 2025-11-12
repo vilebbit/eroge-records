@@ -13,13 +13,16 @@ interface CollectionPageProps {
 
 async function getCollection(collectionId: string): Promise<GameCollectionDoc | null> {
   "use cache"
-  cacheLife("hours")
+  cacheLife("minutes")
 
   const collections = await queryCollections()
   return collections.find(c => c._id === collectionId) || null
 }
 
 export async function generateStaticParams() {
+  "use cache"
+  cacheLife("minutes")
+
   const collections = await queryCollections()
   return collections.map((collection) => ({
     collectionId: collection._id,
@@ -40,7 +43,7 @@ export default async function CollectionPage({ params }: CollectionPageProps) {
         <div className="w-full">
           <Skeleton className="w-96 h-10 mb-8 rounded" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {Array.from({ length: 8 }).map((_, i) => (
+            {Array.from({ length: 12 }).map((_, i) => (
               <Skeleton key={i} className="w-full h-32 rounded-lg" />
             ))}
           </div>

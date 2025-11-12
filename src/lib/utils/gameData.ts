@@ -2,56 +2,22 @@ import { PlayStatus, PLAY_STATUS_CONFIG, PlayStatusConfig } from "@/lib/types/co
 import type { GameDoc } from "@/lib/db/documents"
 
 /**
- * Safely extracts cover URL from GameDoc extra metadata
+ * Safely extracts URL from GameDoc extra metadata
  * @param game - GameDoc object
- * @returns Cover URL string or null if not found
+ * @param linkType - Link type
+ * @returns URL string or null if not found
  */
-export function getCoverUrl(game: GameDoc): string | null {
+export function getGameRelatedSiteUrl(game: GameDoc, linkType: "Cover" | "Official Site" | "ErogameScape" | "Blog"): string | null {
   try {
-    const coverEntry = game.metadata.relatedSites.find((entry) => entry.label === "Cover")
+    const linkEntry = game.metadata.relatedSites.find((entry) => entry.label === linkType)
 
-    if (coverEntry && coverEntry.url) {
-      return coverEntry.url
+    if (linkEntry && linkEntry.url) {
+      return linkEntry.url
     }
 
     return null
   } catch (error) {
-    console.warn(`Failed to extract cover URL for game ${game._id}:`, error)
-    return null
-  }
-}
-
-/**
- * Safely extracts official site URL from GameDoc relatedSites
- * @param game - GameDoc object
- * @returns Official site URL string or null if not found
- */
-export function getOfficialSiteUrl(game: GameDoc): string | null {
-  try {
-    const officialSite = game.metadata.relatedSites.find((site) => site.label === "Official Site")
-
-    if (officialSite && officialSite.url) {
-      return officialSite.url
-    }
-
-    return null
-  } catch (error) {
-    console.warn(`Failed to extract official site URL for game ${game._id}:`, error)
-    return null
-  }
-}
-
-export function getErogeScapeSiteUrl(game: GameDoc): string | null {
-  try {
-    const erogeScape = game.metadata.relatedSites.find((site) => site.label === "ErogameScape")
-
-    if (erogeScape && erogeScape.url) {
-      return erogeScape.url
-    }
-
-    return null
-  } catch (error) {
-    console.warn(`Failed to extract erogescape site URL for game ${game._id}:`, error)
+    console.warn(`Failed to extract URL for game ${game._id}:`, error)
     return null
   }
 }

@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { AppProviders } from "@/app/providers"
 import { ClientConsent } from "@/components/clientConsent"
 import { Navbar } from "@/components/layout/navbar"
+import Script from "next/script"
 
 export const metadata: Metadata = {
   title: "Eroge Records",
@@ -17,6 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
+        <Script defer
+          src={process.env.NEXT_PUBLIC_UMAMI_URL}
+          data-website-id={process.env.NEXT_PUBLIC_UMAMI_ID}
+          data-domains={process.env.NEXT_PUBLIC_UMAMI_HOST}
+        />
       </head>
       <body>
         <AppProviders>

@@ -6,16 +6,15 @@ import Image from "next/image"
 import Link from "next/link"
 import { useTranslation } from "react-i18next"
 import {
-  getCoverUrl,
-  getOfficialSiteUrl,
+  getGameRelatedSiteUrl,
   getGameTitle,
   getDevelopers,
   getPlayStatusConfig,
-  getErogeScapeSiteUrl,
 } from "@/lib/utils/gameData"
 import { formatPlaytime } from "@/lib/utils/time"
 import { formatDate } from "@/lib/utils/date"
 import type { GameDoc } from "@/lib/db/documents"
+import { getScoreColor } from "@/lib/utils/gameGrouping"
 
 interface RatingTableProps {
   title: string
@@ -51,9 +50,9 @@ export function RatingTable({ title, games }: RatingTableProps) {
               </TableHeader>
               <TableBody>
                 {games.map((game) => {
-                  const coverUrl = getCoverUrl(game)
-                  const officialSiteUrl = getOfficialSiteUrl(game)
-                  const erogeScapeUrl = getErogeScapeSiteUrl(game)
+                  const coverUrl = getGameRelatedSiteUrl(game, "Cover")
+                  const officialSiteUrl = getGameRelatedSiteUrl(game, "Official Site")
+                  const erogeScapeUrl = getGameRelatedSiteUrl(game, "ErogameScape")
                   const title = getGameTitle(game)
                   const developers = getDevelopers(game)
                   const playStatusConfig = getPlayStatusConfig(game.record.playStatus)
@@ -61,7 +60,7 @@ export function RatingTable({ title, games }: RatingTableProps) {
                   return (
                     <TableRow key={game._id} className="hover:bg-default-50 dark:hover:bg-default-100">
                       <TableCell>
-                        <span className="font-semibold text-primary/90">
+                        <span className={`font-semibold ${getScoreColor(game.record.score)}`}>
                           {game.record.score < 0 ? "N/A" : game.record.score.toFixed(1)}
                         </span>
                       </TableCell>
@@ -111,7 +110,7 @@ export function RatingTable({ title, games }: RatingTableProps) {
                               href={erogeScapeUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="block w-fit text-primary/90 hover:underline font-medium"
+                              className="block w-fit text-default-600 hover:underline font-medium"
                               title={title}
                             >
                               <span className="line-clamp-2">{title}</span>

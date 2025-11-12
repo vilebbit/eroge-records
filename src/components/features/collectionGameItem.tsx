@@ -5,8 +5,11 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { formatPlaytime } from "@/lib/utils/time"
-import { getCoverUrl, getOfficialSiteUrl, getGameTitle } from "@/lib/utils/gameData"
+import { getGameRelatedSiteUrl, getGameTitle, getDevelopers } from "@/lib/utils/gameData"
 import type { GameDoc } from "@/lib/db/documents"
+import { GenreChips } from "./genreChips"
+import { useTranslation } from "react-i18next"
+import { getScoreColor } from "@/lib/utils/gameGrouping"
 
 interface CollectionGameItemProps {
   game: GameDoc
@@ -14,8 +17,12 @@ interface CollectionGameItemProps {
 }
 
 export function CollectionGameItem({ game, index }: CollectionGameItemProps) {
-  const coverUrl = getCoverUrl(game)
-  const officialSiteUrl = getOfficialSiteUrl(game)
+  const { t } = useTranslation()
+
+  const coverUrl = getGameRelatedSiteUrl(game, "Cover")
+  const officialSiteUrl = getGameRelatedSiteUrl(game, "Official Site")
+  const erogeScapeUrl = getGameRelatedSiteUrl(game, "ErogameScape")
+  const blogUrl = getGameRelatedSiteUrl(game, "Blog")
   const title = getGameTitle(game)
 
   return (
@@ -25,25 +32,26 @@ export function CollectionGameItem({ game, index }: CollectionGameItemProps) {
       transition={{ duration: 0.3, delay: index * 0.03 }}
     >
       <Card
-        isPressable={!!officialSiteUrl}
-        className="group hover:scale-105 transition-transform duration-300"
+        className="w-full h-full hover:scale-103 transition-transform duration-300"
       >
         <CardBody className="p-0 overflow-hidden">
-          <div className="flex gap-4 p-4">
+          <div className="flex gap-4">
             {/* Cover Image */}
-            <div className="relative w-24 h-32 shrink-0 rounded overflow-hidden bg-default-100">
+            <div className="relative w-36 h-48 shrink-0 rounded overflow-hidden bg-default-100">
               {coverUrl
                 ? (
                   officialSiteUrl
                     ? (
                       <Link href={officialSiteUrl} target="_blank" rel="noopener noreferrer">
-                        <Image
-                          src={coverUrl}
-                          alt={title}
-                          fill
-                          className="object-cover group-hover:scale-110 transition-transform duration-300"
-                          sizes="96px"
-                        />
+                        <div className="relative w-full h-full">
+                          <Image
+                            src={coverUrl}
+                            alt={title}
+                            fill
+                            className="object-cover group-hover:scale-110 transition-transform duration-300"
+                            sizes="192px"
+                          />
+                        </div>
                       </Link>
                     )
                     : (
@@ -52,7 +60,7 @@ export function CollectionGameItem({ game, index }: CollectionGameItemProps) {
                         alt={title}
                         fill
                         className="object-cover"
-                        sizes="96px"
+                        sizes="192px"
                       />
                     )
                 )
@@ -64,15 +72,15 @@ export function CollectionGameItem({ game, index }: CollectionGameItemProps) {
             </div>
 
             {/* Game Info */}
-            <div className="flex-1 min-w-0">
-              <div className="mb-2">
-                {officialSiteUrl
+            <div className="py-2 flex-1 min-w-0">
+              <div className="">
+                {erogeScapeUrl
                   ? (
                     <Link
-                      href={officialSiteUrl}
+                      href={erogeScapeUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-lg font-bold text-primary hover:underline line-clamp-2"
+                      className="text-lg font-bold text-default-700 hover:underline line-clamp-1 w-fit"
                     >
                       {title}
                     </Link>
@@ -82,11 +90,19 @@ export function CollectionGameItem({ game, index }: CollectionGameItemProps) {
                   )}
               </div>
 
-              <div className="flex flex-wrap gap-4 text-sm">
+              <div className="text-sm text-default-500">
+                <span>{getDevelopers(game)}</span>
+              </div>
+
+              <div className="mb-2 text-sm text-default-500">
+                <span>{game.metadata.releaseDate}</span>
+              </div>
+
+              <div className="mb-2 flex flex-wrap gap-x-4 text-sm">
                 <div>
                   <span className="text-default-500">Score: </span>
-                  <span className="font-semibold text-primary">
-                    {game.record.score.toFixed(1)}
+                  <span className={`font-semibold ${getScoreColor(game.record.score)}`}>
+                    {game.record.score > 0 ? game.record.score.toFixed(1) : "N/A"}
                   </span>
                 </div>
                 <div>
@@ -96,6 +112,25 @@ export function CollectionGameItem({ game, index }: CollectionGameItemProps) {
                   </span>
                 </div>
               </div>
+
+              <div className="mb-2">
+                <GenreChips genres={game.metadata.genres} />
+              </div>
+
+              {
+                blogUrl && (
+                  <div className="">
+                    <Link
+                      href={blogUrl}
+                      target="_blank"
+                      rel="noopener"
+                      className="text-sm font-medium text-primary/90 hover:underline line-clamp-1 w-fit"
+                    >
+                      {t("collections.blogLink")}
+                    </Link>
+                  </div>
+                )
+              }
             </div>
           </div>
         </CardBody>

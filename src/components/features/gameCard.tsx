@@ -4,7 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { useTranslation } from "react-i18next"
-import { getCoverUrl, getOfficialSiteUrl, getGameTitle, getPlayStatusConfig } from "@/lib/utils/gameData"
+import { getGameRelatedSiteUrl, getGameTitle, getPlayStatusConfig } from "@/lib/utils/gameData"
 import type { GameDoc } from "@/lib/db/documents"
 import { formatDate } from "@/lib/utils/date"
 
@@ -15,8 +15,8 @@ interface GameCardProps {
 
 export function GameCard({ game, index = 0 }: GameCardProps) {
   const { t } = useTranslation()
-  const coverUrl = getCoverUrl(game)
-  const officialSiteUrl = getOfficialSiteUrl(game)
+  const coverUrl = getGameRelatedSiteUrl(game, "Cover")
+  const officialSiteUrl = getGameRelatedSiteUrl(game, "Official Site")
   const title = getGameTitle(game)
   const playStatusConfig = getPlayStatusConfig(game.record.playStatus)
 

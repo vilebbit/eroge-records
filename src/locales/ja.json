@@ -39,8 +39,8 @@
   "collections": {
     "title": "ゲームコレクション",
     "noCollections": "コレクションが見つかりません",
-    "gamesCount": "{count} ゲーム",
-    "collectionDetail": "コレクション：{name}",
+    "gamesCount": "{{val}} ゲーム",
+    "collectionDetail": "コレクション：{{name}}",
     "noGamesInCollection": "このコレクションにゲームはありません"
   },
   "gameCard": {
