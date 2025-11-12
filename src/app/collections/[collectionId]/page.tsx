@@ -13,7 +13,7 @@ interface CollectionPageProps {
 
 async function getCollection(collectionId: string): Promise<GameCollectionDoc | null> {
   "use cache"
-  cacheLife("minutes")
+  cacheLife("days")
 
   const collections = await queryCollections()
   return collections.find(c => c._id === collectionId) || null
@@ -21,7 +21,7 @@ async function getCollection(collectionId: string): Promise<GameCollectionDoc | 
 
 export async function generateStaticParams() {
   "use cache"
-  cacheLife("minutes")
+  cacheLife("days")
 
   const collections = await queryCollections()
   return collections.map((collection) => ({
@@ -31,7 +31,7 @@ export async function generateStaticParams() {
 
 export default async function CollectionPage({ params }: CollectionPageProps) {
   "use cache"
-  cacheLife("minutes")
+  cacheLife("days")
 
   const { collectionId } = await params
   const collectionPromise = getCollection(collectionId)

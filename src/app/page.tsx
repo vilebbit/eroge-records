@@ -6,7 +6,7 @@ import { Home } from "./home"
 
 export default async function HomePage() {
   "use cache"
-  cacheLife("minutes")
+  cacheLife("days")
 
   const gamesPromise = queryAllGames()
 

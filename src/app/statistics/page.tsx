@@ -8,7 +8,7 @@ import { Statistics } from "./statistics"
 
 export default async function StatisticsPage() {
   "use cache"
-  cacheLife("minutes")
+  cacheLife("days")
 
   const gamePromise = queryAllGames()
 

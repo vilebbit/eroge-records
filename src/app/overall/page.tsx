@@ -6,7 +6,7 @@ import { Overall } from "./overall"
 
 export default async function OverallPage() {
   "use cache"
-  cacheLife("minutes")
+  cacheLife("days")
 
   const gamePromise = queryAllGames()
 

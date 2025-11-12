@@ -6,7 +6,7 @@ import { Collections } from "./collections"
 
 export default async function CollectionsPage() {
   "use cache"
-  cacheLife("minutes")
+  cacheLife("days")
 
   const collectionsPromise = queryCollections()
   const gamesPromise = queryAllGames()

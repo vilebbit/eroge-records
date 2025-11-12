@@ -7,7 +7,7 @@ import type { GameCollectionDoc, GameDoc } from "./documents"
 
 export async function queryAllGames(): Promise<GameDoc[]> {
   "use cache"
-  cacheLife("hours")
+  cacheLife("days")
 
   try {
     const games = await findDB("vnite-game", {
@@ -36,7 +36,7 @@ export async function queryAllGames(): Promise<GameDoc[]> {
 
 export async function queryCollections(): Promise<GameCollectionDoc[]> {
   "use cache"
-  cacheLife("hours")
+  cacheLife("days")
 
   try {
     const collections = await findDB("vnite-game-collection", {
