@@ -6,8 +6,11 @@ import { Navbar } from "@/components/layout/navbar"
 import Script from "next/script"
 
 export const metadata: Metadata = {
-  title: "Eroge Records",
-  description: "Game playing data charts and statistics",
+  title: {
+    default: "Eroge Records",
+    template: "%s - Eroge Records",
+  },
+  description: "Vibbit's eroge play records data tracker",
 }
 
 export default function RootLayout({

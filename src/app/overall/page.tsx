@@ -3,6 +3,11 @@ import { cacheLife } from "next/cache"
 import { queryAllGames } from "@/lib/db"
 import { Suspense } from "react"
 import { Overall } from "./overall"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Overall",
+}
 
 export default async function OverallPage() {
   "use cache"

@@ -3,8 +3,13 @@ import { Skeleton } from "@heroui/skeleton"
 import { cacheLife } from "next/cache"
 import { queryAllGames } from "@/lib/db"
 import { Statistics } from "./statistics"
+import type { Metadata } from "next"
 
 // const LIMIT_RECENT_GAMES = 6
+
+export const metadata: Metadata = {
+  title: "Statistics",
+}
 
 export default async function StatisticsPage() {
   "use cache"

@@ -4,11 +4,28 @@ import { cacheLife } from "next/cache"
 import { queryCollections, queryAllGames } from "@/lib/db"
 import { CollectionDetail } from "./collectionDetail"
 import type { GameCollectionDoc } from "@/lib/db/documents"
+import type { Metadata } from "next"
 
 interface CollectionPageProps {
   params: Promise<{
     collectionId: string
   }>
+}
+
+export async function generateMetadata(
+  { params }: { params: Promise<{ collectionId: string }> },
+): Promise<Metadata> {
+  "use cache"
+  cacheLife("days")
+
+  const { collectionId } = await params
+  const collection = await getCollection(collectionId)
+  return {
+    title: collection?.name ?? "Collections",
+    description: collection
+      ? `Explore the "${collection.name}" collection of curated eroges`
+      : "Curated collections of excellent eroges across various genres",
+  }
 }
 
 async function getCollection(collectionId: string): Promise<GameCollectionDoc | null> {

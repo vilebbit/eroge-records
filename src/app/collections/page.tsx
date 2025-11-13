@@ -3,6 +3,12 @@ import { Skeleton } from "@heroui/skeleton"
 import { cacheLife } from "next/cache"
 import { queryCollections, queryAllGames } from "@/lib/db"
 import { Collections } from "./collections"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Collections",
+  description: "Curated collections of excellent eroges across various genres",
+}
 
 export default async function CollectionsPage() {
   "use cache"
