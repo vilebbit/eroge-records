@@ -1,18 +1,16 @@
 {
   "app": {
-    "title": "ゲーム記録",
-    "description": "ゲームプレイデータのチャートと統計"
+    "title": "Eroge Records"
   },
   "nav": {
-    "home": "ホーム",
     "statistics": "統計",
     "overall": "総合",
     "collections": "コレクション",
     "navigation": "ナビゲーション"
   },
   "home": {
-    "title": "Eroge Recordsへようこそ",
-    "description": "Vibbitの個人用ゲームデータトラッカーです。すべてのゲーム統計を記録しています。",
+    "title": "Eroge Records へようこそ",
+    "description": "Vibbit の個人用ゲームデータトラッカーです。すべてのゲーム統計を記録しています。",
     "lifetimeRecords": "ライフタイムレコード",
     "totalGames": "ゲーム総数",
     "playingGames": "現在プレイ中",
@@ -24,7 +22,6 @@
   },
   "statistics": {
     "title": "ゲーム統計",
-    "recentGamesTitle": "最近プレイしたゲーム",
     "lastOneYearPlaytimeChartTitle": "過去1年間のゲーム統計",
     "noGamesFound": "最近プレイしたゲームが見つかりません",
     "noPlaytimeData": "プレイ時間データがありません"
@@ -33,15 +30,16 @@
     "title": "総ゲーム記録",
     "totalGames": "総ゲーム数",
     "totalPlaytime": "総プレイ時間",
-    "averageScore": "平均スコア",
-    "noGamesInRange": "この評価範囲にゲームはありません"
+    "averageScore": "平均スコア"
   },
   "collections": {
     "title": "ゲームコレクション",
+    "description": "様々なジャンルの優れたゲームの個人厳選コレクション",
     "noCollections": "コレクションが見つかりません",
     "gamesCount": "{{val}} ゲーム",
     "collectionDetail": "コレクション：{{name}}",
-    "noGamesInCollection": "このコレクションにゲームはありません"
+    "noGamesInCollection": "このコレクションにゲームはありません",
+    "blogLink": "感想 (Blog)"
   },
   "gameCard": {
     "noCover": "カバーなし"
@@ -52,10 +50,11 @@
       "coverImage": "カバー",
       "name": "名前",
       "brand": "発行元",
+      "releaseDate": "リリース日",
       "score": "評価",
       "playStatus": "プレイ状態",
       "playtime": "プレイ時間",
-      "lastRunDate": "最終ゲーム日"
+      "lastRunDate": "最終プレイ"
     },
     "ranges": {
       "perfect": "超神作",
@@ -97,11 +96,6 @@
     "description": "現在表示するアイテムはありません。"
   },
   "common": {
-    "loading": "読み込み中...",
-    "hours": "時間",
-    "unknown": "不明",
-    "noCover": "カバーなし",
-    "invalidDate": "無効な日付",
-    "na": "該当なし"
+    "hours": "時間"
   }
 }

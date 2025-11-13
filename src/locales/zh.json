@@ -1,10 +1,8 @@
 {
   "app": {
-    "title": "Eroge Records",
-    "description": "游戏游玩数据图表和统计"
+    "title": "Eroge Records"
   },
   "nav": {
-    "home": "主页",
     "statistics": "统计",
     "overall": "总览",
     "collections": "合集",
@@ -24,7 +22,6 @@
   },
   "statistics": {
     "title": "游戏统计",
-    "recentGamesTitle": "最近游玩的游戏",
     "lastOneYearPlaytimeChartTitle": "过去一年游戏统计",
     "noGamesFound": "未找到最近游玩的游戏",
     "noPlaytimeData": "无游玩时间数据"
@@ -33,8 +30,7 @@
     "title": "总游戏记录",
     "totalGames": "游戏总数",
     "totalPlaytime": "总游玩时间",
-    "averageScore": "平均评分",
-    "noGamesInRange": "该评分范围内无游戏"
+    "averageScore": "平均评分"
   },
   "collections": {
     "title": "游戏合集",
@@ -54,10 +50,11 @@
       "coverImage": "封面",
       "name": "名称",
       "brand": "发行商",
+      "releaseDate": "发行日",
       "score": "评分",
       "playStatus": "游玩状态",
       "playtime": "游戏时长",
-      "lastRunDate": "最终游戏日期"
+      "lastRunDate": "最终游戏"
     },
     "ranges": {
       "perfect": "超神作",
@@ -99,11 +96,6 @@
     "description": "目前没有可显示的项目。"
   },
   "common": {
-    "loading": "加载中...",
-    "hours": "小时",
-    "unknown": "未知",
-    "noCover": "无封面",
-    "invalidDate": "无效日期",
-    "na": "不适用"
+    "hours": "小时"
   }
 }

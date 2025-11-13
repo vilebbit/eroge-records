@@ -1,10 +1,8 @@
 {
   "app": {
-    "title": "Eroge Records",
-    "description": "Game playing data charts and statistics"
+    "title": "Eroge Records"
   },
   "nav": {
-    "home": "Home",
     "statistics": "Statistics",
     "overall": "Overall",
     "collections": "Collections",
@@ -12,7 +10,7 @@
   },
   "home": {
     "title": "Welcome to Eroge Records",
-    "description": "This is Vibbit's personal game data tracker, recording all game statistics.",
+    "description": "This is Vibbit's personal game data tracker.",
     "lifetimeRecords": "Lifetime Records",
     "totalGames": "Total Games",
     "playingGames": "Currently Playing",
@@ -24,7 +22,6 @@
   },
   "statistics": {
     "title": "Game Statistics",
-    "recentGamesTitle": "Recently Played Games",
     "lastOneYearPlaytimeChartTitle": "Games Statistics in Past Year",
     "noGamesFound": "No recently played games found",
     "noPlaytimeData": "No playtime data available"
@@ -33,15 +30,16 @@
     "title": "Total Game Records",
     "totalGames": "Total Games",
     "totalPlaytime": "Total Playtime",
-    "averageScore": "Average Score",
-    "noGamesInRange": "No games in this rating range"
+    "averageScore": "Average Score"
   },
   "collections": {
     "title": "Game Collections",
+    "description": "Personal curated collections of excellent games across various genres",
     "noCollections": "No collections found",
     "gamesCount": "{{val}} games",
     "collectionDetail": "Collection: {{name}}",
-    "noGamesInCollection": "No games in this collection"
+    "noGamesInCollection": "No games in this collection",
+    "blogLink": "Thoughts (Blog)"
   },
   "gameCard": {
     "noCover": "No Cover"
@@ -52,18 +50,19 @@
       "coverImage": "Cover",
       "name": "Name",
       "brand": "Publisher",
+      "releaseDate": "Release",
       "score": "Score",
       "playStatus": "Play Status",
       "playtime": "Playtime",
-      "lastRunDate": "Final Game Date"
+      "lastRunDate": "Last Play"
     },
     "ranges": {
       "perfect": "Masterpiece",
       "excellent": "Outstanding",
       "great": "Great",
-      "good": "Good",
-      "fair": "Average",
-      "poor": "Poor",
+      "good": "Fair",
+      "fair": "Poor",
+      "poor": "Worthless",
       "unscored": "Unscored"
     },
     "noGames": "No games found"
@@ -71,7 +70,7 @@
   "playStatus": {
     "unplayed": "Unplayed",
     "playing": "Playing",
-    "partial": "Partially Completed",
+    "partial": "Partial",
     "finished": "Finished",
     "multiple": "Multiple",
     "shelved": "Shelved"
@@ -97,11 +96,6 @@
     "description": "There are no items to display at this time."
   },
   "common": {
-    "loading": "Loading...",
-    "hours": "Hours",
-    "unknown": "Unknown",
-    "noCover": "No Cover",
-    "invalidDate": "Invalid Date",
-    "na": "N/A"
+    "hours": "Hours"
   }
 }

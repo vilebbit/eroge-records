@@ -44,6 +44,7 @@ export function RatingTable({ title, games }: RatingTableProps) {
                 <TableColumn className="w-24">{t("ratingTable.columns.coverImage")}</TableColumn>
                 <TableColumn className="min-w-42">{t("ratingTable.columns.name")}</TableColumn>
                 <TableColumn className="w-48 hidden md:table-cell">{t("ratingTable.columns.brand")}</TableColumn>
+                <TableColumn className="w-28 hidden md:table-cell">{t("ratingTable.columns.releaseDate")}</TableColumn>
                 <TableColumn className="w-32">{t("ratingTable.columns.playStatus")}</TableColumn>
                 <TableColumn className="w-24 text-right">{t("ratingTable.columns.playtime")}</TableColumn>
                 <TableColumn className="w-28 hidden sm:table-cell">{t("ratingTable.columns.lastRunDate")}</TableColumn>
@@ -125,6 +126,11 @@ export function RatingTable({ title, games }: RatingTableProps) {
                       <TableCell className="hidden md:table-cell">
                         <span className="text-sm text-default-600 line-clamp-1" title={developers}>
                           {developers}
+                        </span>
+                      </TableCell>
+                      <TableCell className="hidden md:table-cell">
+                        <span className="text-sm text-default-600 line-clamp-1">
+                          {game.metadata.releaseDate}
                         </span>
                       </TableCell>
                       <TableCell>
