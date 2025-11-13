@@ -41,6 +41,11 @@
     "noGamesInCollection": "このコレクションにゲームはありません",
     "blogLink": "感想 (Blog)"
   },
+  "about": {
+    "title": "About",
+    "owner": "作者: ",
+    "source": "ソースコード: "
+  },
   "gameCard": {
     "noCover": "カバーなし"
   },

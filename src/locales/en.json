@@ -6,6 +6,7 @@
     "statistics": "Statistics",
     "overall": "Overall",
     "collections": "Collections",
+    "about": "About",
     "navigation": "Navigation"
   },
   "home": {
@@ -40,6 +41,11 @@
     "collectionDetail": "Collection: {{name}}",
     "noGamesInCollection": "No games in this collection",
     "blogLink": "Thoughts (Blog)"
+  },
+  "about": {
+    "title": "About",
+    "owner": "Owner: ",
+    "source": "Source code: "
   },
   "gameCard": {
     "noCover": "No Cover"

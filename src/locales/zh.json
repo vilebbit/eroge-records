@@ -41,6 +41,11 @@
     "noGamesInCollection": "该合集中无游戏",
     "blogLink": "个人感想 (Blog)"
   },
+  "about": {
+    "title": "关于",
+    "owner": "作者: ",
+    "source": "源代码: "
+  },
   "gameCard": {
     "noCover": "无封面"
   },

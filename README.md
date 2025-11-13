@@ -1,6 +1,6 @@
 # Eroge Records
 
-A personal Eroge playing records tracking website
+A personal Eroge play records tracking website
 
 ## Overview
 
