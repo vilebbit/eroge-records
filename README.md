@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Eroge Records
 
-## Getting Started
+A personal Eroge playing records tracking website
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+The main purpose of building this website is not the website itself, but rather I want to try out a complete workflow of building things with agents from the very beginning to the end.
+That said, this project was about 70% percent written by agents, then reviewed and modified by human or continued to be iterated by agents. You can find complete instructions and prompts I used in the process of building this website in the project's folder, they are:
+
+- `AGENTS.md`: A project overview README for agents
+- `.github/chatmodes`: Chat modes I have used
+- `.github/prompts`: Prompts I have used
+- `agents/*`: Documents created by agents
+
+## Data
+
+The data originates from a self-hosted CouchDB server also used for synchronization with [Vnite](https://github.com/ximu3/vnite). Think of the entire data flow like this:
+
+```mermaid
+flowchart LR
+  p1<-->c1
+  c1-->e1
+
+  subgraph Eroge Records
+    direction TB
+    e1[Server Components] --> e2[[Client Browser]]
+  end
+
+  subgraph CouchDB Server
+    c1[(DB)]
+  end
+
+  subgraph End PC
+    p1[[Vnite]]
+  end
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
