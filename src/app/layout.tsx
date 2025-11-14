@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     default: "Eroge Records",
     template: "%s - Eroge Records",
   },
-  description: "Vibbit's eroge play records data tracker",
+  description: "Vibbit's eroge play record data tracker",
 }
 
 export default function RootLayout({
