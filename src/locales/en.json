@@ -40,7 +40,7 @@
     "gamesCount": "{{val}} games",
     "collectionDetail": "Collection: {{name}}",
     "noGamesInCollection": "No games in this collection",
-    "blogLink": "Thoughts (Blog)"
+    "blogLink": "Comment (Blog)"
   },
   "about": {
     "title": "About",
