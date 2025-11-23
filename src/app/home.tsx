@@ -30,7 +30,7 @@ export function Home({ gamesPromise }: { gamesPromise: Promise<GameDoc[]> }) {
 
   // Recently playing games (status: "playing")
   const recentlyPlaying = sortedRecentGames
-    .filter(game => game.record.playStatus === "playing")
+    .filter(game => game.record.playStatus === "playing" && !game.metadata.genres.includes("抜きゲー"))
     .slice(0, 6)
 
   // Recently completed games (status: "partial" or "finished")
