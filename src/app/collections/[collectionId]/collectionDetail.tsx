@@ -33,6 +33,7 @@ export function CollectionDetail({ collectionPromise, gamesPromise }: Collection
   const collectionGames = collection.games
     .map(gameId => gamesMap.get(gameId))
     .filter((game): game is GameDoc => game !== undefined)
+    .sort((a, b) => { return a.record.lastRunDate > b.record.lastRunDate ? -1 : 1 }) // Sort by lastRunDate desc
 
   return (
     <div className="w-full">
