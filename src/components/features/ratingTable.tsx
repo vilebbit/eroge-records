@@ -15,17 +15,24 @@ import { formatPlaytime } from "@/lib/utils/time"
 import { formatDate } from "@/lib/utils/date"
 import type { GameDoc } from "@/lib/db/documents"
 import { getScoreColor } from "@/lib/utils/gameGrouping"
+import { motion } from "framer-motion"
 
 interface RatingTableProps {
   title: string
   games: GameDoc[]
+  index?: number
 }
 
-export function RatingTable({ title, games }: RatingTableProps) {
+export function RatingTable({ title, games, index = 0 }: RatingTableProps) {
   const { t } = useTranslation()
 
   return (
-    <div className="mb-8 animate-leftin">
+    <motion.div
+      className="mb-8"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.05, duration: 0.3 }}
+    >
       <h2 className="text-xl font-bold mb-4">{t(title)}</h2>
       <div className="bg-content1 rounded-lg border border-default-200 overflow-x-auto">
         {
@@ -155,6 +162,6 @@ export function RatingTable({ title, games }: RatingTableProps) {
             </Table>
         }
       </div>
-    </div>
+    </motion.div>
   )
 }

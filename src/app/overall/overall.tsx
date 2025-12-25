@@ -109,8 +109,8 @@ export function Overall({ gamesPromise }: { gamesPromise: Promise<GameDoc[]> }) 
         />
       </div>
 
-      {groupedGames.map((group) => (
-        <RatingTable key={group.range} title={group.label} games={group.games} />
+      {groupedGames.map((group, idx) => (
+        <RatingTable key={group.range} title={group.label} games={group.games} index={idx + 8} />
       ))}
     </div>
   )
