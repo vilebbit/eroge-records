@@ -4,7 +4,7 @@ import { use } from "react"
 import { useTranslation } from "react-i18next"
 import { PlaytimeChart } from "@/components/features/playtimeChart"
 import type { GameDoc } from "@/lib/db/documents"
-import { getRecentOneYearGames } from "@/lib/utils/filters"
+import { getYearGames } from "@/lib/utils/filters"
 
 export function Statistics({
   gamesPromise,
@@ -14,13 +14,13 @@ export function Statistics({
   const { t } = useTranslation()
 
   const games = use(gamesPromise)
-  const recentGames = getRecentOneYearGames(games)
+  const yearGames = getYearGames(games)
 
   return (
     <div className="w-full">
       <h1 className="text-3xl font-bold mb-8">{t("statistics.title")}</h1>
       <h1 className="text-xl mb-8">{t("statistics.lastOneYearPlaytimeChartTitle")}</h1>
-      <PlaytimeChart games={recentGames} />
+      <PlaytimeChart games={yearGames} />
     </div>
   )
 }
