@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next"
 import { GameCard } from "@/components/features/gameCard"
 import { formatPlaytime } from "@/lib/utils/time"
 import type { GameDoc } from "@/lib/db/documents"
-import { getRecentOneYearGames } from "@/lib/utils/filters"
+import { getYearGames } from "@/lib/utils/filters"
 import { DataCard } from "@/components/features/dataCard"
 
 export function Home({ gamesPromise }: { gamesPromise: Promise<GameDoc[]> }) {
@@ -21,7 +21,7 @@ export function Home({ gamesPromise }: { gamesPromise: Promise<GameDoc[]> }) {
   const totalPlaytime = allGames.reduce((sum, game) => sum + game.record.playTime, 0)
 
   // Filter games played within the last year
-  const recentGames = getRecentOneYearGames(allGames)
+  const recentGames = getYearGames(allGames)
 
   // Sort by lastRunDate descending
   const sortedRecentGames = recentGames.sort((a, b) => {
