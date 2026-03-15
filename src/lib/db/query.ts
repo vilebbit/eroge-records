@@ -11,7 +11,22 @@ export async function queryAllGames(): Promise<GameDoc[]> {
 
   try {
     const games = await findDB("vnite-game", {
-      selector: { "$not": { "_id": { "$beginsWith": "_design/" } } },
+      selector: {
+        "_id": {
+          "$not": {
+            "$regex": "^_design/",
+          },
+        },
+        "metadata.extra": {
+          "$not": {
+            "$elemMatch": {
+              "key": {
+                "$eq": "Excluded",
+              },
+            },
+          },
+        },
+      },
       fields: [
         "_id",
         "metadata.name",
