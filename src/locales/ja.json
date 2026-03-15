@@ -22,7 +22,10 @@
   },
   "statistics": {
     "title": "ゲーム統計",
+    "yearSelector": "年を選択",
+    "recentYear": "最近1年",
     "lastOneYearPlaytimeChartTitle": "過去1年間のゲーム統計",
+    "yearPlaytimeChartTitle": "{{year}} 年のゲーム統計",
     "noGamesFound": "最近プレイしたゲームが見つかりません",
     "noPlaytimeData": "プレイ時間データがありません"
   },
@@ -40,11 +43,6 @@
     "collectionDetail": "コレクション：{{name}}",
     "noGamesInCollection": "このコレクションにゲームはありません",
     "blogLink": "感想 (Blog)"
-  },
-  "about": {
-    "title": "About",
-    "owner": "作者: ",
-    "source": "ソースコード: "
   },
   "gameCard": {
     "noCover": "カバーなし"

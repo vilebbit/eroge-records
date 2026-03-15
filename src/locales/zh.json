@@ -22,7 +22,10 @@
   },
   "statistics": {
     "title": "游戏统计",
+    "yearSelector": "选择年份",
+    "recentYear": "最近一年",
     "lastOneYearPlaytimeChartTitle": "过去一年游戏统计",
+    "yearPlaytimeChartTitle": "{{year}} 年游戏统计",
     "noGamesFound": "未找到最近游玩的游戏",
     "noPlaytimeData": "无游玩时间数据"
   },
@@ -40,11 +43,6 @@
     "collectionDetail": "合集：{{name}}",
     "noGamesInCollection": "该合集中无游戏",
     "blogLink": "个人感想 (Blog)"
-  },
-  "about": {
-    "title": "关于",
-    "owner": "作者: ",
-    "source": "源代码: "
   },
   "gameCard": {
     "noCover": "无封面"

@@ -6,7 +6,6 @@
     "statistics": "Statistics",
     "overall": "Overall",
     "collections": "Collections",
-    "about": "About",
     "navigation": "Navigation"
   },
   "home": {
@@ -17,13 +16,16 @@
     "playingGames": "Currently Playing",
     "completedGames": "Completed Games",
     "totalPlaytime": "Total Playtime",
-    "recentlyPlaying": "Currently Playing",
+    "recentlyPlaying": "Recently Playing",
     "recentlyCompleted": "Recently Completed",
     "noRecentGames": "No recent games found"
   },
   "statistics": {
     "title": "Game Statistics",
+    "yearSelector": "Select Year",
+    "recentYear": "Recent 1 Year",
     "lastOneYearPlaytimeChartTitle": "Games Statistics in Past Year",
+    "yearPlaytimeChartTitle": "Games Statistics in {{year}}",
     "noGamesFound": "No recently played games found",
     "noPlaytimeData": "No playtime data available"
   },
@@ -40,12 +42,7 @@
     "gamesCount": "{{val}} games",
     "collectionDetail": "Collection: {{name}}",
     "noGamesInCollection": "No games in this collection",
-    "blogLink": "Comment (Blog)"
-  },
-  "about": {
-    "title": "About",
-    "owner": "Owner: ",
-    "source": "Source code: "
+    "blogLink": "Thoughts (Blog)"
   },
   "gameCard": {
     "noCover": "No Cover"
