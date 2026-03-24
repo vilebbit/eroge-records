@@ -6,6 +6,7 @@
     "statistics": "統計",
     "overall": "総合",
     "collections": "コレクション",
+    "about": "About",
     "navigation": "ナビゲーション"
   },
   "home": {
@@ -43,6 +44,11 @@
     "collectionDetail": "コレクション：{{name}}",
     "noGamesInCollection": "このコレクションにゲームはありません",
     "blogLink": "感想 (Blog)"
+  },
+  "about": {
+    "title": "About",
+    "owner": "作者: ",
+    "source": "ソースコード: "
   },
   "gameCard": {
     "noCover": "カバーなし"
