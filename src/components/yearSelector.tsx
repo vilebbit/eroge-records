@@ -1,7 +1,9 @@
 "use client"
 
 import { useTranslation } from "react-i18next"
-import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@heroui/react"
+import { Dropdown } from "@heroui/react/dropdown"
+import { Button } from "@heroui/react/button"
+import { Label } from "@heroui/react/label"
 
 interface YearSelectorProps {
   selectedYear: number | undefined
@@ -25,37 +27,39 @@ export default function YearSelector({ selectedYear, onYearChange }: YearSelecto
 
   return (
     <div className="flex items-center gap-2">
-      <span className="text-sm text-default-600">{t("statistics.yearSelector")}:</span>
+      <span className="text-sm text-foreground/80">{t("statistics.yearSelector")}:</span>
       <Dropdown>
-        <DropdownTrigger>
-          <Button
-            variant="bordered"
-            className="min-w-[120px]"
-            size="sm"
-          >
-            {getLabel()}
-          </Button>
-        </DropdownTrigger>
-        <DropdownMenu
-          aria-label="Year selection"
-          onAction={(key) => {
-            const yearValue = key === "recent" ? undefined : parseInt(key as string)
-            onYearChange(yearValue)
-          }}
-          selectedKeys={selectedYear ? [selectedYear.toString()] : ["recent"]}
-          selectionMode="single"
+        <Button
+          variant="outline"
+          className="min-w-[120px]"
+          size="sm"
         >
-          {[
-            <DropdownItem key="recent" textValue="recent">
-              {t("statistics.recentYear")}
-            </DropdownItem>,
-            ...years.map((year) => (
-              <DropdownItem key={year.toString()} textValue={year.toString()}>
-                {year}
-              </DropdownItem>
-            )),
-          ]}
-        </DropdownMenu>
+          {getLabel()}
+        </Button>
+        <Dropdown.Popover>
+          <Dropdown.Menu
+            aria-label={t("statistics.yearSelector")}
+            onAction={(key) => {
+              const yearValue = key === "recent" ? undefined : parseInt(key as string)
+              onYearChange(yearValue)
+            }}
+            selectedKeys={selectedYear ? [selectedYear.toString()] : ["recent"]}
+            selectionMode="single"
+          >
+            {[
+              <Dropdown.Item key="recent" id="recent" textValue={t("statistics.recentYear")}>
+                <Dropdown.ItemIndicator />
+                <Label>{t("statistics.recentYear")}</Label>
+              </Dropdown.Item>,
+              ...years.map((year) => (
+                <Dropdown.Item key={year} id={year.toString()} textValue={year.toString()}>
+                  <Dropdown.ItemIndicator />
+                  <Label>{year}</Label>
+                </Dropdown.Item>
+              )),
+            ]}
+          </Dropdown.Menu>
+        </Dropdown.Popover>
       </Dropdown>
     </div>
   )

@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils/className"
-import { Chip } from "@heroui/chip"
+import { Chip } from "@heroui/react/chip"
 
 export function GenreChips({
   genres,
@@ -18,9 +18,9 @@ export function GenreChips({
         <Chip
           size="sm"
           key={genre}
-          className="text-xs"
-          color="secondary"
-          variant="flat"
+          className="text-xs bg-secondary/15 text-secondary"
+          color="default"
+          variant="soft"
         >
           {genre}
         </Chip>

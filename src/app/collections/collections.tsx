@@ -41,7 +41,7 @@ export function Collections({ collectionsPromise, gamesPromise }: CollectionsPro
 
   if (collectionsWithCovers.length === 0) {
     return (
-      <div className="text-center py-12 text-default-400">
+      <div className="text-center py-12 text-muted">
         {t("collections.noCollections")}
       </div>
     )
@@ -50,7 +50,7 @@ export function Collections({ collectionsPromise, gamesPromise }: CollectionsPro
   return (
     <div className="w-full">
       <h1 className="text-3xl font-bold mb-4">{t("collections.title")}</h1>
-      <h3 className="text-xl mb-8 text-default-600">{t("collections.description")}</h3>
+      <h3 className="text-xl mb-8 text-foreground/80">{t("collections.description")}</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {collectionsWithCovers.map((collection, index) => (
           <CollectionCard

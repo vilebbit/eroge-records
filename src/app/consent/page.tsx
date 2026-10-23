@@ -1,9 +1,9 @@
 "use client"
 
-import { Button } from "@heroui/button"
+import { Button } from "@heroui/react/button"
 import { useRouter } from "next/navigation"
 import { AnimatePresence, motion, Variants } from "framer-motion"
-import { useState } from "react";
+import { useState } from "react"
 
 export default function ConsentPage() {
   const [isTickVisible, setIsTickVisible] = useState<boolean>(false)
@@ -38,7 +38,8 @@ export default function ConsentPage() {
                   localStorage.setItem("client-consent-key", "1")
                   setIsTickVisible(true)
                   setTimeout(() => router.replace("/"), 2000)
-                }}>
+                }}
+                >
                   OK
                 </Button>
               </div>

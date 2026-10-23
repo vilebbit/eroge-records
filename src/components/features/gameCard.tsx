@@ -1,5 +1,5 @@
-import { Card, CardBody, CardFooter } from "@heroui/card"
-import { Chip } from "@heroui/chip"
+import { Card } from "@heroui/react/card"
+import { Chip } from "@heroui/react/chip"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
@@ -21,9 +21,9 @@ export function GameCard({ game, index = 0 }: GameCardProps) {
   const playStatusConfig = getPlayStatusConfig(game.record.playStatus)
 
   const cardContent = (
-    <Card className="w-full h-full hover:scale-105 transition-transform duration-200">
-      <CardBody className="p-0 overflow-hidden">
-        <div className="relative w-full aspect-3/4 bg-default-100">
+    <Card className="gap-0 p-0 overflow-hidden rounded-xl w-full h-full hover:scale-105 transition-transform duration-200">
+      <Card.Content className="p-0 overflow-hidden">
+        <div className="relative w-full aspect-3/4 bg-default">
           {coverUrl
             ? (
               <Image
@@ -36,29 +36,29 @@ export function GameCard({ game, index = 0 }: GameCardProps) {
               />
             )
             : (
-              <div className="w-full h-full flex items-center justify-center text-default-400">
+              <div className="w-full h-full flex items-center justify-center text-muted">
                 {t("gameCard.noCover")}
               </div>
             )}
         </div>
-      </CardBody>
-      <CardFooter className="flex flex-col items-start gap-2 p-3">
+      </Card.Content>
+      <Card.Footer className="flex flex-col items-start gap-2 p-3">
         <p className="text-sm font-semibold line-clamp-1 w-full" title={title}>
           {title}
         </p>
         <div className="w-full flex justify-between items-center">
           <Chip
-            className="text-sm"
+            className={`text-sm ${playStatusConfig.className ?? ""}`}
             color={playStatusConfig.color}
-            variant="flat"
+            variant="soft"
           >
             {t(`playStatus.${game.record.playStatus}`)}
           </Chip>
-          <div className="text-sm text-default-600">
+          <div className="text-sm text-foreground/80">
             {formatDate(game.record.lastRunDate)}
           </div>
         </div>
-      </CardFooter>
+      </Card.Footer>
     </Card>
   )
 

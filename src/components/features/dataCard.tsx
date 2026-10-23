@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils/className"
-import { Card, CardBody } from "@heroui/card"
+import { Card } from "@heroui/react/card"
 import { motion } from "framer-motion"
 
 export function DataCard({
@@ -19,11 +19,11 @@ export function DataCard({
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.05, duration: 0.3 }}
     >
-      <Card classNames={{ base: "transition-none transition-transform" }}>
-        <CardBody className="text-center">
-          <p className="text-sm text-default-600 mb-1">{upperText}</p>
+      <Card className="p-3 transition-transform">
+        <Card.Content className="text-center">
+          <p className="text-sm text-foreground/80 mb-1">{upperText}</p>
           <p className={cn("text-3xl font-bold", className)}>{mainText}</p>
-        </CardBody>
+        </Card.Content>
       </Card>
     </motion.div>
   )

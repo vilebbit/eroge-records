@@ -7,7 +7,6 @@ import { groupGamesByScore } from "@/lib/utils/gameGrouping"
 import { formatPlaytime } from "@/lib/utils/time"
 import type { GameDoc } from "@/lib/db/documents"
 import { DataCard } from "@/components/features/dataCard"
-import { PLAY_STATUS_CONFIG } from "@/lib/types/common"
 
 export function Overall({ gamesPromise }: { gamesPromise: Promise<GameDoc[]> }) {
   const { t } = useTranslation()
@@ -59,7 +58,7 @@ export function Overall({ gamesPromise }: { gamesPromise: Promise<GameDoc[]> }) 
         <DataCard
           upperText={t("overall.totalGames")}
           mainText={totalGames.toString()}
-          className="text-primary"
+          className="text-accent"
           index={0}
         />
         <DataCard
@@ -80,31 +79,31 @@ export function Overall({ gamesPromise }: { gamesPromise: Promise<GameDoc[]> }) 
         <DataCard
           upperText={t("playStatus.finished")}
           mainText={countFinished.toString()}
-          className={`text-${PLAY_STATUS_CONFIG.finished.color}`}
+          className="text-success"
           index={3}
         />
         <DataCard
           upperText={t("playStatus.partial")}
           mainText={countPartial.toString()}
-          className={`text-${PLAY_STATUS_CONFIG.partial.color}`}
+          className="text-warning"
           index={4}
         />
         <DataCard
           upperText={t("playStatus.playing")}
           mainText={countPlaying.toString()}
-          className={`text-${PLAY_STATUS_CONFIG.playing.color}`}
+          className="text-accent"
           index={5}
         />
         <DataCard
           upperText={t("playStatus.multiple")}
           mainText={countMultiple.toString()}
-          className={`text-${PLAY_STATUS_CONFIG.multiple.color}`}
+          className="text-secondary"
           index={6}
         />
         <DataCard
           upperText={t("playStatus.shelved")}
           mainText={countShelved.toString()}
-          className={`text-${PLAY_STATUS_CONFIG.shelved.color}`}
+          className="text-danger"
           index={7}
         />
       </div>

@@ -22,7 +22,7 @@ export function getScoreColor(score: number): string {
   if (score >= 8 && score < 9) return "text-sky-600"
   if (score >= 7 && score < 8) return "text-emerald-600"
   if (score >= 6 && score < 7) return "text-rose-400"
-  if (score >= 0 && score < 6) return "text-default-400"
+  if (score >= 0 && score < 6) return "text-muted"
   return "text-default"
 }
 

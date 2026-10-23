@@ -42,7 +42,7 @@ export function Home({ gamesPromise }: { gamesPromise: Promise<GameDoc[]> }) {
     <div className="w-full">
       <div className="mb-8">
         <h1 className="text-4xl font-bold mb-4">{t("home.title")}</h1>
-        <p className="text-default-600 text-lg">
+        <p className="text-foreground/80 text-lg">
           {t("home.description")}
         </p>
       </div>
@@ -54,7 +54,7 @@ export function Home({ gamesPromise }: { gamesPromise: Promise<GameDoc[]> }) {
           <DataCard
             upperText={t("home.totalGames")}
             mainText={totalGames.toString()}
-            className="text-primary"
+            className="text-accent"
             index={0}
           />
           <DataCard
@@ -103,7 +103,7 @@ export function Home({ gamesPromise }: { gamesPromise: Promise<GameDoc[]> }) {
       )}
 
       {recentlyPlaying.length === 0 && recentlyCompleted.length === 0 && (
-        <div className="text-center py-12 text-default-400">
+        <div className="text-center py-12 text-muted">
           {t("home.noRecentGames")}
         </div>
       )}

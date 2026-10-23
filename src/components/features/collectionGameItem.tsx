@@ -1,6 +1,6 @@
 "use client"
 
-import { Card, CardBody } from "@heroui/card"
+import { Card } from "@heroui/react/card"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
@@ -32,12 +32,12 @@ export function CollectionGameItem({ game, index }: CollectionGameItemProps) {
       transition={{ duration: 0.3, delay: index * 0.03 }}
     >
       <Card
-        className="w-full h-full hover:scale-103 transition-transform duration-300"
+        className="gap-0 p-0 overflow-hidden rounded-xl w-full h-full hover:scale-103 transition-transform duration-300"
       >
-        <CardBody className="p-0 overflow-hidden">
+        <Card.Content className="p-0 overflow-hidden">
           <div className="flex gap-4">
             {/* Cover Image */}
-            <div className="relative w-36 h-48 shrink-0 rounded overflow-hidden bg-default-100">
+            <div className="relative w-36 h-48 shrink-0 rounded overflow-hidden bg-default">
               {coverUrl
                 ? (
                   officialSiteUrl
@@ -65,7 +65,7 @@ export function CollectionGameItem({ game, index }: CollectionGameItemProps) {
                     )
                 )
                 : (
-                  <div className="flex items-center justify-center h-full text-default-400 text-xs">
+                  <div className="flex items-center justify-center h-full text-muted text-xs">
                     No Cover
                   </div>
                 )}
@@ -80,7 +80,7 @@ export function CollectionGameItem({ game, index }: CollectionGameItemProps) {
                       href={erogeScapeUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-lg font-bold text-default-700 hover:underline line-clamp-1 w-fit"
+                      className="text-lg font-bold text-foreground hover:underline line-clamp-1 w-fit"
                     >
                       {title}
                     </Link>
@@ -90,23 +90,23 @@ export function CollectionGameItem({ game, index }: CollectionGameItemProps) {
                   )}
               </div>
 
-              <div className="text-sm text-default-500">
+              <div className="text-sm text-muted">
                 <span>{getDevelopers(game)}</span>
               </div>
 
-              <div className="mb-2 text-sm text-default-500">
+              <div className="mb-2 text-sm text-muted">
                 <span>{game.metadata.releaseDate}</span>
               </div>
 
               <div className="mb-2 flex flex-wrap gap-x-4 text-sm">
                 <div>
-                  <span className="text-default-500">Score: </span>
+                  <span className="text-muted">Score: </span>
                   <span className={`font-semibold ${getScoreColor(game.record.score)}`}>
                     {game.record.score > 0 ? game.record.score.toFixed(1) : "N/A"}
                   </span>
                 </div>
                 <div>
-                  <span className="text-default-500">Playtime: </span>
+                  <span className="text-muted">Playtime: </span>
                   <span className="font-semibold">
                     {formatPlaytime(game.record.playTime)}
                   </span>
@@ -124,7 +124,7 @@ export function CollectionGameItem({ game, index }: CollectionGameItemProps) {
                       href={blogUrl}
                       target="_blank"
                       rel="noopener"
-                      className="text-sm font-medium text-primary/90 hover:underline line-clamp-1 w-fit"
+                      className="text-sm font-medium text-accent/90 hover:underline line-clamp-1 w-fit"
                     >
                       {t("collections.blogLink")}
                     </Link>
@@ -133,7 +133,7 @@ export function CollectionGameItem({ game, index }: CollectionGameItemProps) {
               }
             </div>
           </div>
-        </CardBody>
+        </Card.Content>
       </Card>
     </motion.div>
   )

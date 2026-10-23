@@ -1,5 +1,5 @@
 import { Suspense } from "react"
-import { Skeleton } from "@heroui/skeleton"
+import { Skeleton } from "@heroui/react/skeleton"
 import { cacheLife } from "next/cache"
 import { queryAllGames } from "@/lib/db"
 import { Statistics } from "./statistics"
@@ -37,7 +37,7 @@ export default async function StatisticsPage() {
             </div> */}
             <div className="mb-12">
               <Skeleton className="w-56 h-8 mb-6 rounded" />
-              <div className="bg-content1 rounded-lg p-6 border border-default-200">
+              <div className="bg-surface rounded-lg p-6 border border-border">
                 <Skeleton className="w-full h-[600px] rounded-lg" />
               </div>
             </div>

@@ -18,7 +18,7 @@ This project is a personal web application that displays charts of my game playi
 - Next.js v16 recently introduced Cache Components
 - TypeScript for type safety
 - Tailwind CSS v4 for styling
-- HeroUI v2.8.5 for the components library
+- HeroUI v3 for the components library, with CSS imported from `@heroui/react/styles`
 - Recharts for the charting library
 - motion (framer-motion) for animation
 - dayjs for datetime formatting
@@ -40,6 +40,8 @@ This project is a personal web application that displays charts of my game playi
 
 - `pnpm run dev`: 
 - `pnpm run build`: Build the project.
+- `pnpm run lint`: Check source code with ESLint.
+- `pnpm run typecheck`: Generate Next.js route types and check TypeScript.
 
 ## Styling
 

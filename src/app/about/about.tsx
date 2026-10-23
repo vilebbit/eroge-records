@@ -11,7 +11,7 @@ export function About() {
       <h1 className="text-3xl font-bold mb-8">{t("about.title")}</h1>
       <p className="text-xl">
         <span>{t("about.owner")}</span>
-        <span className="text-primary hover:underline">
+        <span className="text-accent hover:underline">
           <Link target="_blank" rel="noopener" href="https://vibbit.me">
             Vibbit
           </Link>
@@ -19,7 +19,7 @@ export function About() {
       </p>
       <p className="text-xl">
         <span>{t("about.source")}</span>
-        <span className="text-primary hover:underline">
+        <span className="text-accent hover:underline">
           <Link
             target="_blank"
             rel="noopener"

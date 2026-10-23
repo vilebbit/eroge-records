@@ -21,7 +21,7 @@ export function CollectionDetail({ collectionPromise, gamesPromise }: Collection
         <h1 className="text-2xl font-bold text-danger mb-4">
           {t("error.title")}
         </h1>
-        <p className="text-default-600">
+        <p className="text-foreground/80">
           {t("collections.noCollections")}
         </p>
       </div>
@@ -43,7 +43,7 @@ export function CollectionDetail({ collectionPromise, gamesPromise }: Collection
 
       {collectionGames.length === 0
         ? (
-          <div className="text-center py-12 text-default-400">
+          <div className="text-center py-12 text-muted">
             {t("collections.noGamesInCollection")}
           </div>
         )

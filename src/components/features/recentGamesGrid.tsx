@@ -14,7 +14,7 @@ export function RecentGamesGrid({ games, limitGames }: RecentGamesGridProps) {
 
   if (games.length === 0) {
     return (
-      <div className="text-center py-12 text-default-400">
+      <div className="text-center py-12 text-muted">
         {t("statistics.noGamesFound")}
       </div>
     )

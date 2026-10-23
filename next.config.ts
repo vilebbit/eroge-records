@@ -2,6 +2,8 @@ import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
   cacheComponents: true,
+  // Preserve the existing prefetch behavior when upgrading from Next.js 16.0.
+  partialPrefetching: false,
   images: {
     remotePatterns: [
       new URL("https://img.vibbit.me/**"),

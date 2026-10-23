@@ -1,8 +1,6 @@
 "use client"
 
-import { Navbar as HeroNavbar, NavbarBrand, NavbarContent, NavbarItem } from "@heroui/navbar"
-import { Button } from "@heroui/button"
-import { Divider } from "@heroui/divider"
+import { Button } from "@heroui/react/button"
 import { IconMenu2 } from "@tabler/icons-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -24,56 +22,54 @@ export function Navbar() {
 
   return (
     <>
-      <HeroNavbar maxWidth="xl" isBordered>
-        {/* Mobile burger menu */}
-        <NavbarContent className="md:hidden" justify="start">
-          <Button
-            isIconOnly
-            variant="light"
-            onPress={() => setIsDrawerOpen(true)}
-            aria-label="Open navigation menu"
-          >
-            <IconMenu2 size={24} />
-          </Button>
-        </NavbarContent>
+      <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-lg">
+        <nav aria-label={t("nav.navigation")} className="mx-auto flex h-16 max-w-7xl items-center gap-4 px-4 sm:px-6">
+          {/* Mobile burger menu */}
+          <div className="md:hidden">
+            <Button
+              isIconOnly
+              variant="ghost"
+              onPress={() => setIsDrawerOpen(true)}
+              aria-label="Open navigation menu"
+            >
+              <IconMenu2 size={24} />
+            </Button>
+          </div>
 
-        {/* Brand */}
-        <NavbarBrand className="grow-0">
-          <Link href="/" className="font-bold text-xl">
-            {t("app.title")}
-          </Link>
-        </NavbarBrand>
+          {/* Brand */}
+          <div className="shrink-0">
+            <Link href="/" className="font-bold text-xl">
+              {t("app.title")}
+            </Link>
+          </div>
 
-        {/* Desktop navigation */}
-        <NavbarContent className="hidden md:flex gap-4" justify="center">
-          <Divider orientation="vertical" className="h-1/2" />
-          {NAVIGATION_ROUTES.map((route) => {
-            const isActive = pathname === route.path
-            return (
-              <NavbarItem key={route.path} isActive={isActive}>
-                <Link
-                  href={route.path}
-                  className={`${isActive
-                    ? "text-primary font-semibold"
-                    : "text-foreground hover:text-primary transition-colors"}`}
-                >
-                  {t(`nav.${route.label.toLowerCase()}`)}
-                </Link>
-              </NavbarItem>
-            )
-          })}
-        </NavbarContent>
+          {/* Desktop navigation */}
+          <ul className="hidden md:flex items-center gap-4 border-l border-border pl-4">
+            {NAVIGATION_ROUTES.map((route) => {
+              const isActive = pathname === route.path
+              return (
+                <li key={route.path}>
+                  <Link
+                    href={route.path}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`${isActive
+                      ? "text-accent font-semibold"
+                      : "text-foreground hover:text-accent transition-colors"}`}
+                  >
+                    {t(`nav.${route.label.toLowerCase()}`)}
+                  </Link>
+                </li>
+              )
+            })}
+          </ul>
 
-        {/* Language and theme switches */}
-        <NavbarContent justify="end">
-          <NavbarItem>
+          {/* Language and theme switches */}
+          <div className="ml-auto flex items-center gap-2">
             <LanguageSwitch />
-          </NavbarItem>
-          <NavbarItem>
             <ThemeSwitch />
-          </NavbarItem>
-        </NavbarContent>
-      </HeroNavbar>
+          </div>
+        </nav>
+      </header>
 
       {/* Mobile drawer */}
       <MobileDrawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />

@@ -5,15 +5,16 @@ export type PlayStatus = "unplayed" | "playing" | "partial" | "finished" | "mult
 export interface PlayStatusConfig {
   key: PlayStatus
   label: string
-  color: "default" | "primary" | "secondary" | "success" | "warning" | "danger"
+  color: "default" | "accent" | "success" | "warning" | "danger"
+  className?: string
 }
 
 export const PLAY_STATUS_CONFIG: Record<PlayStatus, PlayStatusConfig> = {
   unplayed: { key: "unplayed", label: "Unplayed", color: "default" },
-  playing: { key: "playing", label: "Playing", color: "primary" },
+  playing: { key: "playing", label: "Playing", color: "accent" },
   partial: { key: "partial", label: "Partial", color: "warning" },
   finished: { key: "finished", label: "Finished", color: "success" },
-  multiple: { key: "multiple", label: "Multiple", color: "secondary" },
+  multiple: { key: "multiple", label: "Multiple", color: "default", className: "bg-secondary/15 text-secondary" },
   shelved: { key: "shelved", label: "Shelved", color: "danger" },
 }
 

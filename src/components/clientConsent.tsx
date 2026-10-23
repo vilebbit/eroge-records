@@ -1,26 +1,26 @@
 "use client"
 
 import "client-only"
-import { redirect, usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
+import { useEffect } from "react"
+import { useClient } from "@/lib/hook/useClient"
 
 export function ClientConsent() {
-  const isConsented = (() => {
-    if (typeof window === "undefined") return true
-    const storedData = localStorage.getItem("client-consent-key") ?? "0"
-    return storedData === "1"
-  })()
+  const isClient = useClient()
   const pathname = usePathname()
+  const router = useRouter()
+  const isConsentPage = pathname.startsWith("/consent")
+  const isConsented = isClient && localStorage.getItem("client-consent-key") === "1"
 
-  if (isConsented || pathname.startsWith("/consent")) {
-    return (
-      typeof window !== "undefined"
-        ? null
-        : <div className={`fixed top-0 left-0 h-screen w-screen z-9999 bg-background`} suppressHydrationWarning></div>
-    )
-  } else {
-    redirect("/consent")
+  useEffect(() => {
+    if (isClient && !isConsented && !isConsentPage) {
+      router.replace("/consent")
+    }
+  }, [isClient, isConsented, isConsentPage, router])
+
+  if (isConsentPage || isConsented) {
+    return null
   }
-}
 
-// const ClientConsent = dynamic(() => import("@/components/clientConsent"), { ssr: false })
-// export { ClientConsent }
+  return <div className="fixed inset-0 z-9999 bg-background" aria-hidden="true" />
+}

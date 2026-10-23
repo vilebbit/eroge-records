@@ -21,7 +21,7 @@ export function PlaytimeChart({ games, maxGames = 25 }: PlaytimeChartProps) {
   const { t } = useTranslation()
 
   // Sort by playtime and take top N games
-  const sortedGames = games
+  const sortedGames = [...games]
     .sort((a, b) => b.record.playTime - a.record.playTime)
     .slice(0, maxGames)
 
@@ -34,7 +34,7 @@ export function PlaytimeChart({ games, maxGames = 25 }: PlaytimeChartProps) {
 
   if (chartData.length === 0) {
     return (
-      <div className="text-center py-12 text-default-400">
+      <div className="text-center py-12 text-muted">
         {t("statistics.noPlaytimeData")}
       </div>
     )
@@ -54,16 +54,16 @@ export function PlaytimeChart({ games, maxGames = 25 }: PlaytimeChartProps) {
           layout="vertical"
           margin={{ top: 20, right: 30, left: 150, bottom: 20 }}
         >
-          <CartesianGrid horizontal={false} strokeDasharray="3 3" className="stroke-default-200" />
+          <CartesianGrid horizontal={false} strokeDasharray="3 3" className="stroke-border" />
           <XAxis
             type="number"
             tickLine={false}
-            tick={{ fill: "hsl(var(--coffee-default-500))" }}
+            tick={{ fill: "var(--muted)" }}
             label={{
               value: t("common.hours"),
               position: "insideBottom",
               offset: -10,
-              fill: "hsl(var(--coffee-default-700))",
+              fill: "var(--foreground)",
             }}
             className="text-xs"
           />
@@ -79,18 +79,18 @@ export function PlaytimeChart({ games, maxGames = 25 }: PlaytimeChartProps) {
                 ? `${sanitized.slice(0, 14)}…`
                 : sanitized
             }}
-            tick={{ fill: "hsl(var(--coffee-default-700))" }}
+            tick={{ fill: "var(--foreground)" }}
           />
           <Tooltip
             animationDuration={300}
             animationEasing="ease-out"
-            cursor={{ fill: "hsl(var(--coffee-default-200))" }}
+            cursor={{ fill: "var(--default)" }}
             content={({ active, payload }) => {
               if (active && payload && payload.length) {
                 return (
-                  <div className="bg-content1 border border-default-200 rounded-lg p-3 shadow-lg">
+                  <div className="bg-surface border border-border rounded-lg p-3 shadow-lg">
                     <p className="font-semibold text-sm mb-1">{payload[0].payload.name}</p>
-                    <p className="text-sm text-default-500">
+                    <p className="text-sm text-muted">
                       {t("ratingTable.columns.playtime")}: {payload[0].payload.playtimeFormatted}
                     </p>
                   </div>

@@ -1,5 +1,5 @@
 import { Suspense } from "react"
-import { Skeleton } from "@heroui/skeleton"
+import { Skeleton } from "@heroui/react/skeleton"
 import { cacheLife } from "next/cache"
 import { queryAllGames } from "@/lib/db"
 import { Home } from "./home"

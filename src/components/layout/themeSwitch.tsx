@@ -1,49 +1,46 @@
 "use client"
 
-import { Button } from "@heroui/button"
+import { Button } from "@heroui/react/button"
 import { IconMoon, IconSun } from "@tabler/icons-react"
-import { useEffect, useState } from "react"
+import { useEffect, useSyncExternalStore } from "react"
 import { useTranslation } from "react-i18next"
+
+function subscribeTheme(onChange: () => void) {
+  window.addEventListener("storage", onChange)
+  window.addEventListener("theme-change", onChange)
+  return () => {
+    window.removeEventListener("storage", onChange)
+    window.removeEventListener("theme-change", onChange)
+  }
+}
+
+function getTheme(): "light" | "dark" {
+  return localStorage.getItem("theme") === "light" ? "light" : "dark"
+}
+
+function getServerTheme(): "light" | "dark" {
+  return "dark"
+}
 
 export function ThemeSwitch() {
   const { t } = useTranslation()
-  const [theme, setTheme] = useState<"light" | "dark">("dark")
-  const [mounted, setMounted] = useState(false)
+  const theme = useSyncExternalStore(subscribeTheme, getTheme, getServerTheme)
 
   useEffect(() => {
-    setMounted(true)
-    const storedTheme = localStorage.getItem("theme") as "light" | "dark" | null
-    const initialTheme = storedTheme || "dark"
-    setTheme(initialTheme)
     document.documentElement.classList.remove("light", "dark")
-    document.documentElement.classList.add(initialTheme)
-  }, [])
+    document.documentElement.classList.add(theme)
+  }, [theme])
 
   const toggleTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark"
-    setTheme(newTheme)
     localStorage.setItem("theme", newTheme)
-    document.documentElement.classList.remove("light", "dark")
-    document.documentElement.classList.add(newTheme)
-  }
-
-  if (!mounted) {
-    return (
-      <Button
-        isIconOnly
-        variant="light"
-        aria-label={t("theme.toggle")}
-        className="w-10 h-10"
-      >
-        <IconSun size={20} />
-      </Button>
-    )
+    window.dispatchEvent(new Event("theme-change"))
   }
 
   return (
     <Button
       isIconOnly
-      variant="light"
+      variant="ghost"
       onPress={toggleTheme}
       aria-label={theme === "dark" ? t("theme.switchToLight") : t("theme.switchToDark")}
       className="w-10 h-10"

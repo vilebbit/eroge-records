@@ -1,12 +1,9 @@
-import { useState, useEffect } from "react"
+import { useSyncExternalStore } from "react"
+
+const subscribe = () => () => {}
+const getClientSnapshot = () => true
+const getServerSnapshot = () => false
 
 export function useClient(): boolean {
-  const [isClient, setIsClient] = useState(false)
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setIsClient(true)
-  }, [])
-
-  return isClient
+  return useSyncExternalStore(subscribe, getClientSnapshot, getServerSnapshot)
 }

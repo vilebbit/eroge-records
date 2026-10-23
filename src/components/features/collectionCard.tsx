@@ -1,6 +1,6 @@
 "use client"
 
-import { Card, CardBody } from "@heroui/card"
+import { Card } from "@heroui/react/card"
 import Image from "next/image"
 import Link from "next/link"
 import { useTranslation } from "react-i18next"
@@ -25,11 +25,10 @@ export function CollectionCard({ id, name, coverUrl, gamesCount, index }: Collec
     >
       <Link href={`/collections/${id}`}>
         <Card
-          isPressable
-          className="group hover:scale-105 transition-transform duration-300 w-full h-full"
+          className="gap-0 p-0 overflow-hidden rounded-xl group hover:scale-105 transition-transform duration-300 w-full h-full"
         >
-          <CardBody className="p-0 overflow-hidden">
-            <div className="relative w-full aspect-video bg-default-100">
+          <Card.Content className="p-0 overflow-hidden">
+            <div className="relative w-full aspect-video bg-default">
               {coverUrl
                 ? (
                   <Image
@@ -41,7 +40,7 @@ export function CollectionCard({ id, name, coverUrl, gamesCount, index }: Collec
                   />
                 )
                 : (
-                  <div className="flex items-center justify-center h-full text-default-400">
+                  <div className="flex items-center justify-center h-full text-muted">
                     <span className="text-sm">{t("gameCard.noCover")}</span>
                   </div>
                 )}
@@ -55,7 +54,7 @@ export function CollectionCard({ id, name, coverUrl, gamesCount, index }: Collec
                 </p>
               </div>
             </div>
-          </CardBody>
+          </Card.Content>
         </Card>
       </Link>
     </motion.div>

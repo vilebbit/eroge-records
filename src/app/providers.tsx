@@ -1,6 +1,5 @@
 "use client"
 
-import { HeroUIProvider } from "@heroui/react"
 import { I18nProvider } from "@/components/i18nProvider"
 import { useEffect } from "react"
 import i18n from "@/i18n"
@@ -17,9 +16,7 @@ export function AppProviders({ children }: { children: React.ReactNode }) {
 
   return (
     <I18nProvider>
-      <HeroUIProvider>
-        {children}
-      </HeroUIProvider>
+      {children}
     </I18nProvider>
   )
 }
