@@ -2,8 +2,8 @@
 import "server-only"
 
 import { cacheLife } from "next/cache"
-import { findDB } from "./couch"
-import type { GameCollectionDoc, GameDoc } from "./documents"
+import { findDB } from "@/lib/db/couch"
+import type { GameCollectionDoc, GameDoc } from "@/lib/db/documents"
 
 export async function queryAllGames(): Promise<GameDoc[]> {
   "use cache"
@@ -17,11 +17,16 @@ export async function queryAllGames(): Promise<GameDoc[]> {
             "$regex": "^_design/",
           },
         },
-        "metadata.extra": {
-          "$not": {
+        "$not": {
+          "metadata.extra": {
             "$elemMatch": {
               "key": {
-                "$eq": "Excluded",
+                "$eq": "Visibility",
+              },
+              "value": {
+                "$elemMatch": {
+                  "$eq": "Hide",
+                },
               },
             },
           },
@@ -35,6 +40,7 @@ export async function queryAllGames(): Promise<GameDoc[]> {
         "metadata.relatedSites",
         "metadata.erogamescapeId",
         "metadata.genres",
+        "metadata.extra",
         "record.lastRunDate",
         "record.score",
         "record.playTime",

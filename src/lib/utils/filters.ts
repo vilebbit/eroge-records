@@ -1,4 +1,10 @@
-import type { GameDoc } from "../db"
+import type { GameDoc } from "@/lib/db/documents"
+
+export function getHomeGames(games: GameDoc[]): GameDoc[] {
+  return games.filter(game => !game.metadata.extra?.some(({ key, value }) => {
+    return key === "Visibility" && (value.includes("Statistics") || value.includes("Hide"))
+  }))
+}
 
 export function getYearGames(games: GameDoc[], year?: number): GameDoc[] {
   if (!year || year === 0) {

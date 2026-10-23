@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next"
 import { GameCard } from "@/components/features/gameCard"
 import { formatPlaytime } from "@/lib/utils/time"
 import type { GameDoc } from "@/lib/db/documents"
-import { getYearGames } from "@/lib/utils/filters"
+import { getHomeGames, getYearGames } from "@/lib/utils/filters"
 import { DataCard } from "@/components/features/dataCard"
 
 export function Home({ gamesPromise }: { gamesPromise: Promise<GameDoc[]> }) {
@@ -20,8 +20,8 @@ export function Home({ gamesPromise }: { gamesPromise: Promise<GameDoc[]> }) {
   ).length
   const totalPlaytime = allGames.reduce((sum, game) => sum + game.record.playTime, 0)
 
-  // Filter games played within the last year
-  const recentGames = getYearGames(allGames)
+  // Apply visibility only to recent lists, keeping all fetched games in lifetime statistics.
+  const recentGames = getYearGames(getHomeGames(allGames))
 
   // Sort by lastRunDate descending
   const sortedRecentGames = recentGames.sort((a, b) => {
@@ -30,7 +30,7 @@ export function Home({ gamesPromise }: { gamesPromise: Promise<GameDoc[]> }) {
 
   // Recently playing games (status: "playing")
   const recentlyPlaying = sortedRecentGames
-    .filter(game => game.record.playStatus === "playing" && !game.metadata.genres.includes("抜きゲー"))
+    .filter(game => game.record.playStatus === "playing" && (!game.metadata.genres.includes("抜きゲー") || game.metadata.extra.filter(extra => extra.key === "Visibility" && extra.value.includes("Home")).length > 0))
     .slice(0, 6)
 
   // Recently completed games (status: "partial" or "finished")
