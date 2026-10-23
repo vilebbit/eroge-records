@@ -55,31 +55,31 @@ export function PlaytimeChart({ games, maxGames = 25 }: PlaytimeChartProps) {
           margin={{ top: 20, right: 30, left: 150, bottom: 20 }}
         >
           <CartesianGrid horizontal={false} strokeDasharray="3 3" className="stroke-border" />
+          {/* Recharts portals axis text into a separate layer, so style ticks and labels directly. */}
           <XAxis
             type="number"
             tickLine={false}
-            tick={{ fill: "var(--muted)" }}
+            tick={{ fill: "var(--muted)", className: "text-xs" }}
             label={{
               value: t("common.hours"),
               position: "insideBottom",
               offset: -10,
               fill: "var(--foreground)",
+              className: "text-xs",
             }}
-            className="text-xs"
           />
           <YAxis
             type="category"
             dataKey="name"
             tickLine={false}
             width={40}
-            className="text-xs"
             tickFormatter={(value) => {
               const sanitized = value.replace(" ", "")
               return sanitized.length >= 14
                 ? `${sanitized.slice(0, 14)}…`
                 : sanitized
             }}
-            tick={{ fill: "var(--foreground)" }}
+            tick={{ fill: "var(--foreground)", className: "text-xs" }}
           />
           <Tooltip
             animationDuration={300}
