@@ -30,12 +30,26 @@ export function Home({ gamesPromise }: { gamesPromise: Promise<GameDoc[]> }) {
 
   // Recently playing games (status: "playing")
   const recentlyPlaying = sortedRecentGames
-    .filter(game => game.record.playStatus === "playing" && (!game.metadata.genres.includes("抜きゲー") || game.metadata.extra.filter(extra => extra.key === "Visibility" && extra.value.includes("Home")).length > 0))
+    .filter(game =>
+      game.record.playStatus === "playing"
+      && (
+        !game.metadata.genres.includes("抜きゲー") ||
+        game.metadata.extra.filter(extra => extra.key === "Visibility" && extra.value.includes("Home")).length > 0
+      )
+      && (
+        game.metadata.extra.filter(extra => extra.key === "Visibility" && extra.value.includes("Statistics")).length == 0
+      )
+    )
     .slice(0, 6)
 
   // Recently completed games (status: "partial" or "finished")
   const recentlyCompleted = sortedRecentGames
-    .filter(game => game.record.playStatus === "partial" || game.record.playStatus === "finished")
+    .filter(game =>
+      game.record.playStatus === "partial" || game.record.playStatus === "finished"
+      && (
+        game.metadata.extra.filter(extra => extra.key === "Visibility" && extra.value.includes("Statistics")).length == 0
+      )
+    )
     .slice(0, 6)
 
   return (
