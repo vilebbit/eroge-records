@@ -1,2 +1,6 @@
 allowBuilds:
   unrs-resolver: true
+
+overrides:
+  # Remove when typescript-eslint adopts minimatch >=11.0.1 (GHSA-g3hv-75wg-m249).
+  "@typescript-eslint/typescript-estree@8.72.2>minimatch": 11.0.8

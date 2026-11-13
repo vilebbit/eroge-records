@@ -4,7 +4,7 @@ A personal Eroge play records tracking website
 
 ## Development
 
-Use Node.js 24 LTS and pnpm 12.4.2 (pinned in `package.json`).
+Use Node.js 24 LTS and pnpm 12.18.0 (pinned in `package.json`).
 
 ```sh
 pnpm install --frozen-lockfile
@@ -15,9 +15,9 @@ pnpm run build
 pnpm audit --prod
 ```
 
-The app uses Next.js 16.4.2, React 19.3.1, HeroUI 3, and Tailwind CSS 4. HeroUI styles are imported in `src/app/globals.css`; components use the `@heroui/react/*` exports. Cache Components retain the previous prefetch behavior through `partialPrefetching: false`.
+The app uses Next.js 16.4.6, React 19.3.1, HeroUI 3, and Tailwind CSS 4. HeroUI styles are imported in `src/app/globals.css`; components use the `@heroui/react/*` exports. Cache Components retain the previous prefetch behavior through `partialPrefetching: false`.
 
-ESLint 9.39.5 and TypeScript 6.0.3 are the latest compatible versions as of October 23, 2026. The lint plugins used by `eslint-config-next` do not yet support ESLint 10 or TypeScript 7. The full dependency audit also reports an unpatched development-only [`braces` advisory](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm) through Next.js's lint plugin; the production audit is clean. Recheck these constraints when upgrading the lint tooling.
+ESLint 9.39.5 and TypeScript 6.0.3 remain the latest compatible versions as of November 13, 2026: Next.js's import, accessibility, and React lint plugins require ESLint 9, and `typescript-eslint` requires TypeScript below 6.1. Recheck these constraints when upgrading the lint tooling. A scoped override in `pnpm-workspace.yaml` patches the parser's development-only [`minimatch` advisory](https://github.com/advisories/GHSA-g3hv-75wg-m249); remove it when the parser adopts a patched version. Both full and production dependency audits are clean.
 
 ## Overview
 

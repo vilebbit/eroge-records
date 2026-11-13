@@ -38,7 +38,7 @@ export function Home({ gamesPromise }: { gamesPromise: Promise<GameDoc[]> }) {
       )
       && (
         game.metadata.extra.filter(extra => extra.key === "Visibility" && extra.value.includes("Statistics")).length == 0
-      )
+      ),
     )
     .slice(0, 6)
 
@@ -48,7 +48,7 @@ export function Home({ gamesPromise }: { gamesPromise: Promise<GameDoc[]> }) {
       game.record.playStatus === "partial" || game.record.playStatus === "finished"
       && (
         game.metadata.extra.filter(extra => extra.key === "Visibility" && extra.value.includes("Statistics")).length == 0
-      )
+      ),
     )
     .slice(0, 6)
 
